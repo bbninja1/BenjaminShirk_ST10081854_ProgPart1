@@ -52,6 +52,13 @@
     <Compile Include="BookShelfGame.Designer.cs">
       <DependentUpon>BookShelfGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="IdentifyingAreas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdentifyingAreas.Designer.cs">
+      <DependentUpon>IdentifyingAreas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Identifying_Class.cs" />
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +70,9 @@
     <Compile Include="Replacing_Books.cs" />
     <EmbeddedResource Include="BookShelfGame.resx">
       <DependentUpon>BookShelfGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdentifyingAreas.resx">
+      <DependentUpon>IdentifyingAreas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.pnlBackground = new System.Windows.Forms.Panel();
+            this.btnFindingCallNumbers = new System.Windows.Forms.Button();
+            this.btnIdentifyingAreas = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnStartGame = new System.Windows.Forms.Button();
             this.lblMenu = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.btnIdentifyingAreas = new System.Windows.Forms.Button();
-            this.btnFindingCallNumbers = new System.Windows.Forms.Button();
             this.pnlBackground.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +53,27 @@
             this.pnlBackground.Name = "pnlBackground";
             this.pnlBackground.Size = new System.Drawing.Size(717, 438);
             this.pnlBackground.TabIndex = 2;
+            // 
+            // btnFindingCallNumbers
+            // 
+            this.btnFindingCallNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFindingCallNumbers.Location = new System.Drawing.Point(35, 195);
+            this.btnFindingCallNumbers.Name = "btnFindingCallNumbers";
+            this.btnFindingCallNumbers.Size = new System.Drawing.Size(185, 30);
+            this.btnFindingCallNumbers.TabIndex = 6;
+            this.btnFindingCallNumbers.Text = "Finding Call Numbers";
+            this.btnFindingCallNumbers.UseVisualStyleBackColor = true;
+            // 
+            // btnIdentifyingAreas
+            // 
+            this.btnIdentifyingAreas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIdentifyingAreas.Location = new System.Drawing.Point(485, 195);
+            this.btnIdentifyingAreas.Name = "btnIdentifyingAreas";
+            this.btnIdentifyingAreas.Size = new System.Drawing.Size(185, 30);
+            this.btnIdentifyingAreas.TabIndex = 5;
+            this.btnIdentifyingAreas.Text = "Identifying Areas";
+            this.btnIdentifyingAreas.UseVisualStyleBackColor = true;
+            this.btnIdentifyingAreas.Click += new System.EventHandler(this.btnIdentifyingAreas_Click);
             // 
             // btnClose
             // 
@@ -110,26 +131,6 @@
             this.lblName.Size = new System.Drawing.Size(249, 33);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "BookShelf Mania";
-            // 
-            // btnIdentifyingAreas
-            // 
-            this.btnIdentifyingAreas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIdentifyingAreas.Location = new System.Drawing.Point(485, 195);
-            this.btnIdentifyingAreas.Name = "btnIdentifyingAreas";
-            this.btnIdentifyingAreas.Size = new System.Drawing.Size(185, 30);
-            this.btnIdentifyingAreas.TabIndex = 5;
-            this.btnIdentifyingAreas.Text = "Identifying Areas";
-            this.btnIdentifyingAreas.UseVisualStyleBackColor = true;
-            // 
-            // btnFindingCallNumbers
-            // 
-            this.btnFindingCallNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFindingCallNumbers.Location = new System.Drawing.Point(35, 195);
-            this.btnFindingCallNumbers.Name = "btnFindingCallNumbers";
-            this.btnFindingCallNumbers.Size = new System.Drawing.Size(185, 30);
-            this.btnFindingCallNumbers.TabIndex = 6;
-            this.btnFindingCallNumbers.Text = "Finding Call Numbers";
-            this.btnFindingCallNumbers.UseVisualStyleBackColor = true;
             // 
             // Menu
             // 

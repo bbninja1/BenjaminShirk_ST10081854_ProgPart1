@@ -15,7 +15,6 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         public Menu()
         {
             InitializeComponent();
-            btnIdentifyingAreas.Enabled = false;
             btnFindingCallNumbers.Enabled = false;  
         }
 
@@ -64,6 +63,15 @@ namespace BenjaminShirk_ST10081854_ProgPart1
                            MessageBoxButtons.OK,
                            MessageBoxIcon.Information);
 
+        }
+        #endregion
+
+        #region IdentifyingAreasGame
+        private void btnIdentifyingAreas_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            IdentifyingAreas identifyingAreas = new IdentifyingAreas();
+            identifyingAreas.Show();
         }
         #endregion
     }
