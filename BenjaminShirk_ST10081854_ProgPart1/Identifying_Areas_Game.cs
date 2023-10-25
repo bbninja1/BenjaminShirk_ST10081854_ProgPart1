@@ -12,6 +12,9 @@ namespace BenjaminShirk_ST10081854_ProgPart1
 {
     public partial class Identifying_Areas_Game : Form
     {
+        /// <summary>
+        /// variables
+        /// </summary>
         private Identifying_Areas identfiyingAreas;
         private int gameAlternatater = 0;
         private object Item;
@@ -24,6 +27,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             ResetGame();
         }
 
+        #region CreateQuestion
         // match the columns question
         public void CreateQuestion()
         {
@@ -34,8 +38,9 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             ClearListBox();
             SetupQuestion();
         }
+        #endregion
 
-        
+        #region SetUpQuestion
         //match the columns question that was generated
         public void SetupQuestion()
         {
@@ -44,29 +49,30 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             {
                 //even numbers
                 string[] questions = identfiyingAreas.AlternativeDictionary1.Keys.ToArray();
-                SetupLeftQuestions(questions); 
+                SetupLeftColumn(questions); 
                 List<string> EList = identfiyingAreas.AlternativeDictionary1.Values.ToList();
                 EList.AddRange(identfiyingAreas.AlternateArray1);
                 EList = identfiyingAreas.Shuffle(EList); //shuffle
-                SetupRightAnswers(EList);
+                SetupRightColumn(EList);
             }
             //odd descriptions
             else
             {
                 //questions
                 string[] questions = identfiyingAreas.AlternativeDictionary1.Values.ToArray();
-                SetupLeftQuestions(questions);
+                SetupLeftColumn(questions);
                 //answers combining the dictionary with wrong answers list
                 List<string> EList = identfiyingAreas.AlternativeDictionary1.Keys.ToList();
                 EList.AddRange(identfiyingAreas.AlternateArray1);
                 EList = identfiyingAreas.Shuffle(EList); //shuffle
-                SetupRightAnswers(EList);
+                SetupRightColumn(EList);
             }
         }
+        #endregion
 
-       
+        #region LeftColumnSetUp
         //left side of the questions set up
-        public void SetupLeftQuestions(string[] LeftColumn)
+        public void SetupLeftColumn(string[] LeftColumn)
         {
             int increment = 0;
             var ChangeLabelsToQuestions = ColumnPanel1.Controls.OfType<Label>().Where(c => c.Name.StartsWith("lbl")).ToList();
@@ -77,9 +83,11 @@ namespace BenjaminShirk_ST10081854_ProgPart1
                 increment++;
             }
         }
+        #endregion
 
+        #region RightColumnSetUp
         //setup the right side (answers)
-        public void SetupRightAnswers(List<string> RightColumn)
+        public void SetupRightColumn(List<string> RightColumn)
         {
             lstAnswerList.Items.Clear();
             foreach (var item in RightColumn)
@@ -87,7 +95,9 @@ namespace BenjaminShirk_ST10081854_ProgPart1
                 lstAnswerList.Items.Add(item);
             }
         }
+        #endregion
 
+        #region Mouse Down
         ///Drag and drop list boxxes 
         private void Answer_MouseDown(object sender, MouseEventArgs e)
         {
@@ -117,7 +127,9 @@ namespace BenjaminShirk_ST10081854_ProgPart1
                 e.Effect = DragDropEffects.Copy;
             }
         }
+        #endregion
 
+        #region ListBox Drag Drop
         //answer is dropped into a listbox
         private void ListBox_DragDrop(object sender, DragEventArgs e)
         {
@@ -135,13 +147,13 @@ namespace BenjaminShirk_ST10081854_ProgPart1
                     {
                         DropItem.Items.Remove(Item);
                         lstListBox.Items.Add(text);
-                        CheckAnswer();
+                        ValidateAnswer();
                     }
                     if (lstListBox == lstAnswerList)
                     {
                         DropItem.Items.Remove(Item);
                         lstListBox.Items.Add(text);
-                        CheckAnswer();
+                        ValidateAnswer();
                     }
                 }
             }
@@ -150,9 +162,11 @@ namespace BenjaminShirk_ST10081854_ProgPart1
                 MessageBox.Show(ex.Message, "Error Occured");
             }
         }
+        #endregion
 
+        #region Answer Check
         //Check if the answer was correct
-        public void CheckAnswer()
+        public void ValidateAnswer()
         {
             //score 
             int score = 0;
@@ -180,7 +194,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
 
                     if (isCorrect)
                     {
-                        listBox.ForeColor = Color.Green;
+                        listBox.ForeColor = Color.DarkGreen;
                         score++;
                     }
                     else
@@ -191,8 +205,9 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             }
             UpdateScore(score);
         }
+        #endregion
 
-
+        #region Clear List Box
         // clear the answer boxes when a new question is generated
         private void ClearListBox()
         {
@@ -202,15 +217,18 @@ namespace BenjaminShirk_ST10081854_ProgPart1
                 item.Items.Clear();
             }
         }
+        #endregion
 
-
+        #region Update Score
         // update the score of the game
         private void UpdateScore(int Update)
         {
             Score = Update;
         }
+        #endregion
 
-       //reset game
+        #region Reset Game
+        //reset game
         private void ResetGame()
         {
             gameAlternatater = 0;
@@ -218,6 +236,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             Score = 0;
             CreateQuestion();
         }
+        #endregion
 
         #region Menu Button
         private void btnBack_Click(object sender, EventArgs e)
@@ -276,6 +295,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             ResetPBBar();
         }
         #endregion
+
     }
 }
-
+//-------------------------------------------EndOFFile-----------------------------------------//
