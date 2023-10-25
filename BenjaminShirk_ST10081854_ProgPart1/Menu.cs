@@ -67,13 +67,20 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region IdentifyingAreasGame
+        /// <summary>
+        /// StartGame application button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnIdentifyingAreas_Click(object sender, EventArgs e)
         {
             this.Hide();
-            IdentifyingAreas identifyingAreas = new IdentifyingAreas();
+            Identifying_Areas_Game identifyingAreas = new Identifying_Areas_Game();
             identifyingAreas.Show();
         }
         #endregion
+
+       
     }
 }
 //-------------------------------------------EndOFFile-----------------------------------------//
