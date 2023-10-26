@@ -34,11 +34,15 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         // match the columns question
         public void CreateQuestion()
         {
-            this.gameAlternatater++; //increasing game number
+            //increasing Alternator number
+            this.gameAlternatater++; 
             this.identfiyingAreas = new Identifying_Areas();
             this.identfiyingAreas.AlternativeQuestionsColumn1 = gameAlternatater;
-            this.identfiyingAreas.GenerateQuestion(); //generating question
+            //generating question
+            this.identfiyingAreas.GenerateQuestion();
+            //Clear ListBoxes
             ClearListBox();
+            //Input values into the ListBoxes and labels
             SetupQuestion();
         }
         #endregion
@@ -56,9 +60,11 @@ namespace BenjaminShirk_ST10081854_ProgPart1
                 //Even Numbers Questions
                 string[] questions = identfiyingAreas.AlternativeDictionary1.Keys.ToArray();
                 SetupLeftColumn(questions); 
+
                 //Local List To hold Dictionary Data
                 List<string> EList = identfiyingAreas.AlternativeDictionary1.Values.ToList();
                 EList.AddRange(identfiyingAreas.AlternateArray1);
+
                 //shuffle Lists
                 EList = identfiyingAreas.Shuffle(EList); 
                 SetupRightColumn(EList);
@@ -68,9 +74,11 @@ namespace BenjaminShirk_ST10081854_ProgPart1
                 //Odd Number Questions
                 string[] questions = identfiyingAreas.AlternativeDictionary1.Values.ToArray();
                 SetupLeftColumn(questions);
+
                 //Local List To hold Alternative Data
                 List<string> EList = identfiyingAreas.AlternativeDictionary1.Keys.ToList();
                 EList.AddRange(identfiyingAreas.AlternateArray1);
+
                 //shuffle Lists
                 EList = identfiyingAreas.Shuffle(EList); 
                 SetupRightColumn(EList);
@@ -86,9 +94,9 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         public void SetupLeftColumn(string[] LeftColumn)
         {
             int increment = 0;
-            var ChangeLabelsToQuestions = ColumnPanel1.Controls.OfType<Label>().Where(c => c.Name.StartsWith("lbl")).ToList();
-            ChangeLabelsToQuestions.Reverse();
-            foreach (Label lbl in ChangeLabelsToQuestions)
+            var LabelsChange = ColumnPanel1.Controls.OfType<Label>().Where(c => c.Name.StartsWith("lbl")).ToList();
+            LabelsChange.Reverse();
+            foreach (Label lbl in LabelsChange)
             {
                 lbl.Text = LeftColumn[increment];
                 increment++;
