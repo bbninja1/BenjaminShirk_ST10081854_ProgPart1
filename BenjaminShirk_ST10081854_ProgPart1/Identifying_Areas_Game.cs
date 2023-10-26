@@ -54,7 +54,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         //match the columns question that was generated
         public void SetupQuestion()
         {
-            Score = 0; //reset current score for next question
+            Score = 0; //Set Score to 0
             if (gameAlternatater % 2 == 0)
             {
                 //Even Numbers Questions
@@ -88,7 +88,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
 
         #region LeftColumnSetUp
         /// <summary>
-        /// Populate Left Side Column
+        /// Populate Left Side Column change Labels to Either CallNumber Or Description
         /// </summary>
         /// <param name="LeftColumn"></param>
         public void SetupLeftColumn(string[] LeftColumn)
@@ -106,7 +106,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
 
         #region RightColumnSetUp
         /// <summary>
-        /// Populate Right Side Column
+        /// Populate Right Side Column List
         /// </summary>
         /// <param name="RightColumn"></param>
         //setup the right side (answers)
@@ -159,7 +159,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
 
         #region ListBox Drag Drop
         /// <summary>
-        /// Drag And Drop Into Respective List Box 
+        /// Drag And Drop Into Respective List Box And Call Validation
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -193,7 +193,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         }
         #endregion
 
-        #region Answer Check
+        #region Validation
         /// <summary>
         /// Check if the answer was correct and then change colour if correct or incorrect plus increase score
         /// </summary>
