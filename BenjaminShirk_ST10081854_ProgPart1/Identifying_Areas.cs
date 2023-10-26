@@ -16,7 +16,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         //Dictionary to store the callnumbers and their description type string
         private Dictionary<string, string> DataDictionary = new Dictionary<string, string>();
         private Dictionary<string, string> AlternativeDictionary = new Dictionary<string, string>();
-        //Array for wrong answers of size 2
+        //Array for wrong answers of size 3
         string[] AlternateArray = new string[3]; 
         //Alternate between call numbers, and description questions
         private int AlternativeQuestionsColumn = 0;
@@ -39,7 +39,9 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         }
 
         #region Get/Set Methods
-        //gets and sets methods
+        /// <summary>
+        /// gets and sets methods
+        /// </summary>
         public Dictionary<string, string> AlternativeDictionary1 { get => AlternativeDictionary; set => AlternativeDictionary = value; }
         public int AlternativeQuestionsColumn1 { get => AlternativeQuestionsColumn; set => AlternativeQuestionsColumn = value; }
         public string[] AlternateArray1 { get => AlternateArray; set => AlternateArray = value; }
@@ -47,13 +49,15 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region Generate Question
-        //generate a random question using the Dewey Decimal Dictionary
+        /// <summary>
+        /// Generate Question Using Dictionary
+        /// </summary>
         public void GenerateQuestion()
         {
             List<KeyValuePair<string, string>> possibleAnswers = new List<KeyValuePair<string, string>>(DataDictionary);
             AlternativeDictionary.Clear();
 
-            // Correct Answer
+            // Correct Possible Answer
             for (int i = 0; i < 4; i++)
             {
                 int randomIndex = GetRandomIndex(possibleAnswers);
@@ -62,7 +66,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
                 possibleAnswers.RemoveAt(randomIndex);
             }
 
-            // Wrong Answers
+            // Wrong Possible Answers
             for (int n = 0; n < 3; n++)
             {
                 int randomIndex = GetRandomIndex(possibleAnswers);
@@ -78,7 +82,11 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region RandomIndex
-        // Helper method to get a random index
+        /// <summary>
+        /// Helper method to get a random index
+        /// </summary>
+        /// <param name="listIndex"></param>
+        /// <returns></returns>
         private int GetRandomIndex(List<KeyValuePair<string, string>> listIndex)
         {
             if (listIndex.Count == 0)
@@ -90,6 +98,11 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region Shuffle List/Dictionary Data
+        /// <summary>
+        /// Schuffles the Lists
+        /// </summary>
+        /// <param name="SchuffleLists"></param>
+        /// <returns></returns>
         //randomly shuffle the answers of the question
         public List<string> Shuffle(List<string> SchuffleLists)
         {
@@ -106,7 +119,12 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region Validation
-        // Checks the answer dictionary
+        /// <summary>
+        /// Validates And Checks if values match
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public bool Validate(string key, string value)
         {
             bool Validity = false;

@@ -28,6 +28,9 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         }
 
         #region CreateQuestion
+        /// <summary>
+        /// Creat Question Method
+        /// </summary>
         // match the columns question
         public void CreateQuestion()
         {
@@ -41,37 +44,45 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region SetUpQuestion
+        /// <summary>
+        /// SetUp The Lists Questions
+        /// </summary>
         //match the columns question that was generated
         public void SetupQuestion()
         {
             Score = 0; //reset current score for next question
             if (gameAlternatater % 2 == 0)
             {
-                //even numbers
+                //Even Numbers Questions
                 string[] questions = identfiyingAreas.AlternativeDictionary1.Keys.ToArray();
                 SetupLeftColumn(questions); 
+                //Local List To hold Dictionary Data
                 List<string> EList = identfiyingAreas.AlternativeDictionary1.Values.ToList();
                 EList.AddRange(identfiyingAreas.AlternateArray1);
-                EList = identfiyingAreas.Shuffle(EList); //shuffle
+                //shuffle Lists
+                EList = identfiyingAreas.Shuffle(EList); 
                 SetupRightColumn(EList);
             }
-            //odd descriptions
             else
             {
-                //questions
+                //Odd Number Questions
                 string[] questions = identfiyingAreas.AlternativeDictionary1.Values.ToArray();
                 SetupLeftColumn(questions);
-                //answers combining the dictionary with wrong answers list
+                //Local List To hold Alternative Data
                 List<string> EList = identfiyingAreas.AlternativeDictionary1.Keys.ToList();
                 EList.AddRange(identfiyingAreas.AlternateArray1);
-                EList = identfiyingAreas.Shuffle(EList); //shuffle
+                //shuffle Lists
+                EList = identfiyingAreas.Shuffle(EList); 
                 SetupRightColumn(EList);
             }
         }
         #endregion
 
         #region LeftColumnSetUp
-        //left side of the questions set up
+        /// <summary>
+        /// Populate Left Side Column
+        /// </summary>
+        /// <param name="LeftColumn"></param>
         public void SetupLeftColumn(string[] LeftColumn)
         {
             int increment = 0;
@@ -86,6 +97,10 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region RightColumnSetUp
+        /// <summary>
+        /// Populate Right Side Column
+        /// </summary>
+        /// <param name="RightColumn"></param>
         //setup the right side (answers)
         public void SetupRightColumn(List<string> RightColumn)
         {
@@ -98,7 +113,12 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region Mouse Down
-        ///Drag and drop list boxxes 
+        /// <summary>
+        /// Drag and drop using Mouse 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void Answer_MouseDown(object sender, MouseEventArgs e)
         {
             try
@@ -130,15 +150,16 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region ListBox Drag Drop
-        //answer is dropped into a listbox
+        /// <summary>
+        /// Drag And Drop Into Respective List Box 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ListBox_DragDrop(object sender, DragEventArgs e)
         {
             try
             {
-
                 string text = e.Data.GetData("Text", true) as string;
-
-
                 ListBox lstListBox = (ListBox)sender;
                 if (lstListBox != DropItem)
                 {
@@ -165,12 +186,14 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region Answer Check
-        //Check if the answer was correct
+        /// <summary>
+        /// Check if the answer was correct and then change colour if correct or incorrect plus increase score
+        /// </summary>
         public void ValidateAnswer()
         {
-            //score 
             int score = 0;
 
+            //for each loop 
             foreach (ListBox listBox in ColumnPanel1.Controls.OfType<ListBox>().ToList())
             {
                 if (listBox.Items.Count != 0)
@@ -181,34 +204,40 @@ namespace BenjaminShirk_ST10081854_ProgPart1
                     string question = "";
                     bool isCorrect;
 
+                    //If even will call the CallNumbers
                     if (gameAlternatater % 2 == 0)
                     {
                         question = identfiyingAreas.AlternativeDictionary1.ElementAt(index).Key;
                         isCorrect = identfiyingAreas.Validate(question, answer);
                     }
+                    //If Odd will call the Descriptions
                     else
                     {
                         question = identfiyingAreas.AlternativeDictionary1.ElementAt(index).Value;
                         isCorrect = identfiyingAreas.Validate(answer, question);
                     }
-
+                    //if Correct will highlight green
                     if (isCorrect)
                     {
                         listBox.ForeColor = Color.DarkGreen;
                         score++;
                     }
+                    //if incorrect will highlight Red
                     else
                     {
                         listBox.ForeColor = Color.Red;
                     }
                 }
             }
+            //Updates Score
             UpdateScore(score);
         }
         #endregion
 
         #region Clear List Box
-        // clear the answer boxes when a new question is generated
+        /// <summary>
+        /// clears the answer boxes
+        /// </summary>
         private void ClearListBox()
         {
             var lstAnswerBox = ColumnPanel1.Controls.OfType<ListBox>().ToList();
@@ -220,7 +249,10 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region Update Score
-        // update the score of the game
+        /// <summary>
+        /// updates the score of the game
+        /// </summary>
+        /// <param name="Update"></param>
         private void UpdateScore(int Update)
         {
             Score = Update;
@@ -228,7 +260,9 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region Reset Game
-        //reset game
+        /// <summary>
+        /// Resets The Game
+        /// </summary>
         private void ResetGame()
         {
             gameAlternatater = 0;
@@ -239,6 +273,11 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region Menu Button
+        /// <summary>
+        /// Method to take you back to Menu Page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBack_Click(object sender, EventArgs e)
         {
             //Take you back to the Menu
@@ -249,6 +288,11 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region Help Button
+        /// <summary>
+        /// Help Button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnHelp_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Welcome to the Help Center of Indentifying Areas!\n\n" +
@@ -262,6 +306,9 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region ResetPBBar
+        /// <summary>
+        /// Resets Progress bar
+        /// </summary>
         public void ResetPBBar()
         {
             PBBookGameProgressBar.Value = 0;
@@ -269,6 +316,11 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region Enter
+        /// <summary>
+        /// Enter Will Update your score
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEnter_Click(object sender, EventArgs e)
         {
             totalScore += Score;
@@ -279,6 +331,11 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region Reset Score
+        /// <summary>
+        /// Resets Your Score to 0
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnResetScore_Click(object sender, EventArgs e)
         {
             totalScore = 0;
@@ -289,6 +346,11 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region Next Question
+        /// <summary>
+        /// Generates another Question
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNextQuestion_Click(object sender, EventArgs e)
         {
             CreateQuestion();

@@ -14,7 +14,7 @@ namespace ListHandler
 
         public Dewey_Decimal()
         {
-            //empty constructor
+
         }
 
         #region Constructor
@@ -48,16 +48,6 @@ namespace ListHandler
         }
         #endregion
 
-       /* public bool Validate(string key, string value)
-        {
-            if (AlternativeDictionary.TryGetValue(key, out string correctValue))
-            {
-                return value.Equals(correctValue);
-            }
-
-            return false;
-        }
-       */
     }
 }
 //-------------------------------------------EndOFFile-----------------------------------------//
