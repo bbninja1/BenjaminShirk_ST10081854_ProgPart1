@@ -15,7 +15,6 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         public Menu()
         {
             InitializeComponent();
-            btnFindingCallNumbers.Enabled = false;  
         }
 
         #region StartGame Button
@@ -78,9 +77,17 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             Identifying_Areas_Game identifyingAreas = new Identifying_Areas_Game();
             identifyingAreas.Show();
         }
+
         #endregion
 
-       
+        #region FindingCallNumbers
+        private void btnFindingCallNumbers_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FindingCallNumbers FindingCall = new FindingCallNumbers();
+            FindingCall.Show();
+        }
+        #endregion
     }
 }
 //-------------------------------------------EndOFFile-----------------------------------------//
