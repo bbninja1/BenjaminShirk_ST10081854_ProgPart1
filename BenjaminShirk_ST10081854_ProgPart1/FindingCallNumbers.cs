@@ -16,5 +16,14 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         {
             InitializeComponent();
         }
+
+        #region Menu Button
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Menu MainMenu = new Menu();
+            MainMenu.Show();
+        }
+        #endregion
     }
 }

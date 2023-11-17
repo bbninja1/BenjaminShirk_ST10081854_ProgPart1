@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             this.pnlBackground = new System.Windows.Forms.Panel();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.btnEnter = new System.Windows.Forms.Button();
-            this.btnResetScore = new System.Windows.Forms.Button();
-            this.btnNewGame = new System.Windows.Forms.Button();
-            this.lblTotalScoreNumber = new System.Windows.Forms.Label();
-            this.lblTotalScore = new System.Windows.Forms.Label();
-            this.lblScoreNumber = new System.Windows.Forms.Label();
-            this.lblScore = new System.Windows.Forms.Label();
-            this.PBBookGameProgressBar = new System.Windows.Forms.ProgressBar();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblDescription = new System.Windows.Forms.RichTextBox();
             this.answerPanel = new System.Windows.Forms.Panel();
             this.btnAnswer1 = new System.Windows.Forms.Button();
             this.btnAnswer3 = new System.Windows.Forms.Button();
             this.btnAnswer4 = new System.Windows.Forms.Button();
             this.btnAnswer2 = new System.Windows.Forms.Button();
-            this.lblDescription = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.PBBookGameProgressBar = new System.Windows.Forms.ProgressBar();
+            this.lblTotalScoreNumber = new System.Windows.Forms.Label();
+            this.lblTotalScore = new System.Windows.Forms.Label();
+            this.lblScoreNumber = new System.Windows.Forms.Label();
+            this.lblScore = new System.Windows.Forms.Label();
+            this.btnEnter = new System.Windows.Forms.Button();
+            this.btnResetScore = new System.Windows.Forms.Button();
+            this.btnNewGame = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.pnlBackground.SuspendLayout();
             this.answerPanel.SuspendLayout();
             this.SuspendLayout();
@@ -69,101 +69,33 @@
             this.pnlBackground.Size = new System.Drawing.Size(802, 451);
             this.pnlBackground.TabIndex = 0;
             // 
-            // btnBack
+            // label1
             // 
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(40, 33);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 35);
-            this.btnBack.TabIndex = 35;
-            this.btnBack.Text = "Menu";
-            this.btnBack.UseVisualStyleBackColor = true;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Enabled = false;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Location = new System.Drawing.Point(355, 157);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(105, 20);
+            this.label1.TabIndex = 48;
+            this.label1.Text = "Description:";
             // 
-            // btnEnter
+            // lblDescription
             // 
-            this.btnEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnter.Location = new System.Drawing.Point(385, 401);
-            this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(75, 35);
-            this.btnEnter.TabIndex = 40;
-            this.btnEnter.Text = "Enter";
-            this.btnEnter.UseVisualStyleBackColor = true;
-            // 
-            // btnResetScore
-            // 
-            this.btnResetScore.BackColor = System.Drawing.SystemColors.Control;
-            this.btnResetScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResetScore.Location = new System.Drawing.Point(109, 403);
-            this.btnResetScore.Name = "btnResetScore";
-            this.btnResetScore.Size = new System.Drawing.Size(135, 35);
-            this.btnResetScore.TabIndex = 39;
-            this.btnResetScore.Text = "Reset Score";
-            this.btnResetScore.UseVisualStyleBackColor = false;
-            // 
-            // btnNewGame
-            // 
-            this.btnNewGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewGame.Location = new System.Drawing.Point(538, 401);
-            this.btnNewGame.Name = "btnNewGame";
-            this.btnNewGame.Size = new System.Drawing.Size(151, 35);
-            this.btnNewGame.TabIndex = 38;
-            this.btnNewGame.Text = "Next Game";
-            this.btnNewGame.UseVisualStyleBackColor = true;
-            // 
-            // lblTotalScoreNumber
-            // 
-            this.lblTotalScoreNumber.AutoSize = true;
-            this.lblTotalScoreNumber.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalScoreNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalScoreNumber.ForeColor = System.Drawing.Color.White;
-            this.lblTotalScoreNumber.Location = new System.Drawing.Point(753, 48);
-            this.lblTotalScoreNumber.Name = "lblTotalScoreNumber";
-            this.lblTotalScoreNumber.Size = new System.Drawing.Size(19, 20);
-            this.lblTotalScoreNumber.TabIndex = 44;
-            this.lblTotalScoreNumber.Text = "0";
-            // 
-            // lblTotalScore
-            // 
-            this.lblTotalScore.AutoSize = true;
-            this.lblTotalScore.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalScore.ForeColor = System.Drawing.Color.White;
-            this.lblTotalScore.Location = new System.Drawing.Point(636, 48);
-            this.lblTotalScore.Name = "lblTotalScore";
-            this.lblTotalScore.Size = new System.Drawing.Size(111, 20);
-            this.lblTotalScore.TabIndex = 43;
-            this.lblTotalScore.Text = "Total Score :";
-            // 
-            // lblScoreNumber
-            // 
-            this.lblScoreNumber.AutoSize = true;
-            this.lblScoreNumber.BackColor = System.Drawing.Color.Transparent;
-            this.lblScoreNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblScoreNumber.ForeColor = System.Drawing.Color.White;
-            this.lblScoreNumber.Location = new System.Drawing.Point(753, 25);
-            this.lblScoreNumber.Name = "lblScoreNumber";
-            this.lblScoreNumber.Size = new System.Drawing.Size(19, 20);
-            this.lblScoreNumber.TabIndex = 42;
-            this.lblScoreNumber.Text = "0";
-            // 
-            // lblScore
-            // 
-            this.lblScore.AutoSize = true;
-            this.lblScore.BackColor = System.Drawing.Color.Transparent;
-            this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblScore.ForeColor = System.Drawing.Color.White;
-            this.lblScore.Location = new System.Drawing.Point(681, 25);
-            this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(66, 20);
-            this.lblScore.TabIndex = 41;
-            this.lblScore.Text = "Score :";
-            // 
-            // PBBookGameProgressBar
-            // 
-            this.PBBookGameProgressBar.Location = new System.Drawing.Point(313, 33);
-            this.PBBookGameProgressBar.Name = "PBBookGameProgressBar";
-            this.PBBookGameProgressBar.Size = new System.Drawing.Size(200, 29);
-            this.PBBookGameProgressBar.TabIndex = 45;
+            this.lblDescription.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblDescription.Enabled = false;
+            this.lblDescription.Font = new System.Drawing.Font("Book Antiqua", 9F);
+            this.lblDescription.Location = new System.Drawing.Point(292, 179);
+            this.lblDescription.Margin = new System.Windows.Forms.Padding(2);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.ReadOnly = true;
+            this.lblDescription.Size = new System.Drawing.Size(252, 20);
+            this.lblDescription.TabIndex = 47;
+            this.lblDescription.Text = "Label";
             // 
             // answerPanel
             // 
@@ -236,33 +168,102 @@
             this.btnAnswer2.Text = "answerBtn2";
             this.btnAnswer2.UseVisualStyleBackColor = false;
             // 
-            // lblDescription
+            // PBBookGameProgressBar
             // 
-            this.lblDescription.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lblDescription.Enabled = false;
-            this.lblDescription.Font = new System.Drawing.Font("Book Antiqua", 9F);
-            this.lblDescription.Location = new System.Drawing.Point(292, 179);
-            this.lblDescription.Margin = new System.Windows.Forms.Padding(2);
-            this.lblDescription.Name = "lblDescription";
-            this.lblDescription.ReadOnly = true;
-            this.lblDescription.Size = new System.Drawing.Size(252, 20);
-            this.lblDescription.TabIndex = 47;
-            this.lblDescription.Text = "Label";
+            this.PBBookGameProgressBar.Location = new System.Drawing.Point(313, 33);
+            this.PBBookGameProgressBar.Name = "PBBookGameProgressBar";
+            this.PBBookGameProgressBar.Size = new System.Drawing.Size(200, 29);
+            this.PBBookGameProgressBar.TabIndex = 45;
             // 
-            // label1
+            // lblTotalScoreNumber
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Enabled = false;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(355, 157);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 20);
-            this.label1.TabIndex = 48;
-            this.label1.Text = "Description:";
+            this.lblTotalScoreNumber.AutoSize = true;
+            this.lblTotalScoreNumber.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalScoreNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalScoreNumber.ForeColor = System.Drawing.Color.White;
+            this.lblTotalScoreNumber.Location = new System.Drawing.Point(753, 48);
+            this.lblTotalScoreNumber.Name = "lblTotalScoreNumber";
+            this.lblTotalScoreNumber.Size = new System.Drawing.Size(19, 20);
+            this.lblTotalScoreNumber.TabIndex = 44;
+            this.lblTotalScoreNumber.Text = "0";
+            // 
+            // lblTotalScore
+            // 
+            this.lblTotalScore.AutoSize = true;
+            this.lblTotalScore.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalScore.ForeColor = System.Drawing.Color.White;
+            this.lblTotalScore.Location = new System.Drawing.Point(636, 48);
+            this.lblTotalScore.Name = "lblTotalScore";
+            this.lblTotalScore.Size = new System.Drawing.Size(111, 20);
+            this.lblTotalScore.TabIndex = 43;
+            this.lblTotalScore.Text = "Total Score :";
+            // 
+            // lblScoreNumber
+            // 
+            this.lblScoreNumber.AutoSize = true;
+            this.lblScoreNumber.BackColor = System.Drawing.Color.Transparent;
+            this.lblScoreNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScoreNumber.ForeColor = System.Drawing.Color.White;
+            this.lblScoreNumber.Location = new System.Drawing.Point(753, 25);
+            this.lblScoreNumber.Name = "lblScoreNumber";
+            this.lblScoreNumber.Size = new System.Drawing.Size(19, 20);
+            this.lblScoreNumber.TabIndex = 42;
+            this.lblScoreNumber.Text = "0";
+            // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.BackColor = System.Drawing.Color.Transparent;
+            this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScore.ForeColor = System.Drawing.Color.White;
+            this.lblScore.Location = new System.Drawing.Point(681, 25);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(66, 20);
+            this.lblScore.TabIndex = 41;
+            this.lblScore.Text = "Score :";
+            // 
+            // btnEnter
+            // 
+            this.btnEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnter.Location = new System.Drawing.Point(385, 401);
+            this.btnEnter.Name = "btnEnter";
+            this.btnEnter.Size = new System.Drawing.Size(75, 35);
+            this.btnEnter.TabIndex = 40;
+            this.btnEnter.Text = "Enter";
+            this.btnEnter.UseVisualStyleBackColor = true;
+            // 
+            // btnResetScore
+            // 
+            this.btnResetScore.BackColor = System.Drawing.SystemColors.Control;
+            this.btnResetScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetScore.Location = new System.Drawing.Point(109, 403);
+            this.btnResetScore.Name = "btnResetScore";
+            this.btnResetScore.Size = new System.Drawing.Size(135, 35);
+            this.btnResetScore.TabIndex = 39;
+            this.btnResetScore.Text = "Reset Score";
+            this.btnResetScore.UseVisualStyleBackColor = false;
+            // 
+            // btnNewGame
+            // 
+            this.btnNewGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewGame.Location = new System.Drawing.Point(538, 401);
+            this.btnNewGame.Name = "btnNewGame";
+            this.btnNewGame.Size = new System.Drawing.Size(151, 35);
+            this.btnNewGame.TabIndex = 38;
+            this.btnNewGame.Text = "Next Game";
+            this.btnNewGame.UseVisualStyleBackColor = true;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(40, 33);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 35);
+            this.btnBack.TabIndex = 35;
+            this.btnBack.Text = "Menu";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // FindingCallNumbers
             // 
