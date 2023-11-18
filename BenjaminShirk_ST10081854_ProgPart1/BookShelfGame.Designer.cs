@@ -39,6 +39,7 @@
             this.btnUp = new System.Windows.Forms.Button();
             this.PnlBookCaseHolder = new System.Windows.Forms.Panel();
             this.pnlBackground = new System.Windows.Forms.Panel();
+            this.btnResetTotalScore = new System.Windows.Forms.Button();
             this.lblTotalScoreNumber = new System.Windows.Forms.Label();
             this.lblTotalScore = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.lblScore = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.btnEnter = new System.Windows.Forms.Button();
-            this.btnResetTotalScore = new System.Windows.Forms.Button();
             this.pnlBookcase.SuspendLayout();
             this.PnlBookCaseHolder.SuspendLayout();
             this.pnlBackground.SuspendLayout();
@@ -182,6 +182,18 @@
             this.pnlBackground.Size = new System.Drawing.Size(716, 502);
             this.pnlBackground.TabIndex = 19;
             // 
+            // btnResetTotalScore
+            // 
+            this.btnResetTotalScore.BackColor = System.Drawing.SystemColors.Control;
+            this.btnResetTotalScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetTotalScore.Location = new System.Drawing.Point(616, 80);
+            this.btnResetTotalScore.Name = "btnResetTotalScore";
+            this.btnResetTotalScore.Size = new System.Drawing.Size(75, 30);
+            this.btnResetTotalScore.TabIndex = 26;
+            this.btnResetTotalScore.Text = "Reset";
+            this.btnResetTotalScore.UseVisualStyleBackColor = false;
+            this.btnResetTotalScore.Click += new System.EventHandler(this.btnResetTotalScore_Click);
+            // 
             // lblTotalScoreNumber
             // 
             this.lblTotalScoreNumber.AutoSize = true;
@@ -265,23 +277,12 @@
             this.btnEnter.UseVisualStyleBackColor = false;
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
-            // btnResetTotalScore
-            // 
-            this.btnResetTotalScore.BackColor = System.Drawing.SystemColors.Control;
-            this.btnResetTotalScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResetTotalScore.Location = new System.Drawing.Point(616, 80);
-            this.btnResetTotalScore.Name = "btnResetTotalScore";
-            this.btnResetTotalScore.Size = new System.Drawing.Size(75, 30);
-            this.btnResetTotalScore.TabIndex = 26;
-            this.btnResetTotalScore.Text = "Reset";
-            this.btnResetTotalScore.UseVisualStyleBackColor = false;
-            this.btnResetTotalScore.Click += new System.EventHandler(this.btnResetTotalScore_Click);
-            // 
             // BookShelfGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(716, 498);
+            this.ControlBox = false;
             this.Controls.Add(this.pnlBackground);
             this.Name = "BookShelfGame";
             this.Text = "BookShelfGame";

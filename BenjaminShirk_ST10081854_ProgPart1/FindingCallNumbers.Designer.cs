@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlBackground = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblDescription = new System.Windows.Forms.RichTextBox();
+            this.lblDescription = new System.Windows.Forms.Label();
             this.answerPanel = new System.Windows.Forms.Panel();
             this.btnAnswer1 = new System.Windows.Forms.Button();
             this.btnAnswer3 = new System.Windows.Forms.Button();
@@ -52,7 +51,6 @@
             // pnlBackground
             // 
             this.pnlBackground.BackgroundImage = global::BenjaminShirk_ST10081854_ProgPart1.Properties.Resources.BackgroundImage;
-            this.pnlBackground.Controls.Add(this.label1);
             this.pnlBackground.Controls.Add(this.lblDescription);
             this.pnlBackground.Controls.Add(this.answerPanel);
             this.pnlBackground.Controls.Add(this.PBBookGameProgressBar);
@@ -69,33 +67,20 @@
             this.pnlBackground.Size = new System.Drawing.Size(802, 451);
             this.pnlBackground.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Enabled = false;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(355, 157);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 20);
-            this.label1.TabIndex = 48;
-            this.label1.Text = "Description:";
-            // 
             // lblDescription
             // 
             this.lblDescription.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.BackColor = System.Drawing.Color.Transparent;
             this.lblDescription.Enabled = false;
-            this.lblDescription.Font = new System.Drawing.Font("Book Antiqua", 9F);
-            this.lblDescription.Location = new System.Drawing.Point(292, 179);
-            this.lblDescription.Margin = new System.Windows.Forms.Padding(2);
+            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescription.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblDescription.Location = new System.Drawing.Point(355, 114);
+            this.lblDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.ReadOnly = true;
-            this.lblDescription.Size = new System.Drawing.Size(252, 20);
-            this.lblDescription.TabIndex = 47;
-            this.lblDescription.Text = "Label";
+            this.lblDescription.Size = new System.Drawing.Size(105, 20);
+            this.lblDescription.TabIndex = 48;
+            this.lblDescription.Text = "Description:";
             // 
             // answerPanel
             // 
@@ -106,7 +91,7 @@
             this.answerPanel.Controls.Add(this.btnAnswer3);
             this.answerPanel.Controls.Add(this.btnAnswer4);
             this.answerPanel.Controls.Add(this.btnAnswer2);
-            this.answerPanel.Location = new System.Drawing.Point(186, 203);
+            this.answerPanel.Location = new System.Drawing.Point(186, 157);
             this.answerPanel.Margin = new System.Windows.Forms.Padding(2);
             this.answerPanel.Name = "answerPanel";
             this.answerPanel.Size = new System.Drawing.Size(445, 178);
@@ -270,6 +255,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.pnlBackground);
             this.Name = "FindingCallNumbers";
             this.Text = "FindingCallNumbers";
@@ -297,7 +283,6 @@
         private System.Windows.Forms.Button btnAnswer3;
         private System.Windows.Forms.Button btnAnswer4;
         private System.Windows.Forms.Button btnAnswer2;
-        private System.Windows.Forms.RichTextBox lblDescription;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblDescription;
     }
 }

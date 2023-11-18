@@ -49,9 +49,9 @@
             this.pnlBackground.Controls.Add(this.btnStartGame);
             this.pnlBackground.Controls.Add(this.lblMenu);
             this.pnlBackground.Controls.Add(this.lblName);
-            this.pnlBackground.Location = new System.Drawing.Point(2, 2);
+            this.pnlBackground.Location = new System.Drawing.Point(-1, 0);
             this.pnlBackground.Name = "pnlBackground";
-            this.pnlBackground.Size = new System.Drawing.Size(717, 438);
+            this.pnlBackground.Size = new System.Drawing.Size(720, 446);
             this.pnlBackground.TabIndex = 2;
             // 
             // btnFindingCallNumbers
@@ -138,6 +138,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(719, 441);
+            this.ControlBox = false;
             this.Controls.Add(this.pnlBackground);
             this.Name = "Menu";
             this.Text = "Menu";

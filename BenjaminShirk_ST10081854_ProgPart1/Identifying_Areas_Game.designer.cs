@@ -166,7 +166,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             this.ColumnPanel1.ColumnCount = 3;
             this.ColumnPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
             this.ColumnPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.ColumnPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 155F));
+            this.ColumnPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
             this.ColumnPanel1.Controls.Add(this.lstBox4, 2, 3);
             this.ColumnPanel1.Controls.Add(this.lstBox3, 2, 2);
             this.ColumnPanel1.Controls.Add(this.lstBox2, 2, 1);
@@ -194,7 +194,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             this.lstBox4.Font = new System.Drawing.Font("Constantia", 9F);
             this.lstBox4.FormattingEnabled = true;
             this.lstBox4.ItemHeight = 14;
-            this.lstBox4.Location = new System.Drawing.Point(146, 160);
+            this.lstBox4.Location = new System.Drawing.Point(145, 160);
             this.lstBox4.Margin = new System.Windows.Forms.Padding(2);
             this.lstBox4.Name = "lstBox4";
             this.lstBox4.Size = new System.Drawing.Size(139, 18);
@@ -395,6 +395,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.pnlBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
