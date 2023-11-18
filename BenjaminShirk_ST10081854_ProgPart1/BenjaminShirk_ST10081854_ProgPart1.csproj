@@ -52,7 +52,6 @@
     <Compile Include="BookShelfGame.Designer.cs">
       <DependentUpon>BookShelfGame.cs</DependentUpon>
     </Compile>
-    <Compile Include="FindingCallNum.cs" />
     <Compile Include="FindingCallNumbers.cs">
       <SubType>Form</SubType>
     </Compile>
