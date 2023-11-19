@@ -144,12 +144,12 @@
             this.lblDescription.AutoSize = true;
             this.lblDescription.BackColor = System.Drawing.Color.Transparent;
             this.lblDescription.Enabled = false;
-            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblDescription.Location = new System.Drawing.Point(355, 114);
+            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescription.ForeColor = System.Drawing.Color.White;
+            this.lblDescription.Location = new System.Drawing.Point(355, 138);
             this.lblDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(105, 20);
+            this.lblDescription.Size = new System.Drawing.Size(138, 25);
             this.lblDescription.TabIndex = 48;
             this.lblDescription.Text = "Description:";
             // 
@@ -223,11 +223,11 @@
             // btnNewGame
             // 
             this.btnNewGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewGame.Location = new System.Drawing.Point(538, 401);
+            this.btnNewGame.Location = new System.Drawing.Point(329, 342);
             this.btnNewGame.Name = "btnNewGame";
             this.btnNewGame.Size = new System.Drawing.Size(151, 35);
             this.btnNewGame.TabIndex = 38;
-            this.btnNewGame.Text = "Next Game";
+            this.btnNewGame.Text = "New Game";
             this.btnNewGame.UseVisualStyleBackColor = true;
             // 
             // btnBack

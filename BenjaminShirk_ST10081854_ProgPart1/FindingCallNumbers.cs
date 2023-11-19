@@ -15,155 +15,162 @@ namespace BenjaminShirk_ST10081854_ProgPart1
 {
     public partial class FindingCallNumbers : Form
     {
-        //Timer Decleration with variables
+        // Timer Declaration with variables
         System.Timers.Timer timer;
         int h, m, s;
-        //-------------------------//
-        private string[] Data;
-        private string PFile;
+        //-------------------------
+
+        // Data and File Path Variables
+        public string[] DataStorage;
+        public string PathFile;
+
+        // Red-Black Tree and Display Buttons Variables
         RedBlackTree Tree = new RedBlackTree();
         List<Button> DisplayButtons = new List<Button>();
         List<int> Keys = new List<int>();
+
+        // Game Level and Key Variables
         int level = 1;
         int mkey = 0;
+
+        // Random Number Generator
         Random random = new Random();
+
+        // Score Tracking Variables
         int Score = 0;
         int TotalScore = 0;
-
         public FindingCallNumbers()
         {
             InitializeComponent();
-            PFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dewey_Decimal_Data.txt");
-            Data = File.ReadAllLines(PFile);
+            //finds the txt file path
+            PathFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dewey_Decimal_Data.txt");
+            //sets the string array to the data
+            DataStorage = File.ReadAllLines(PathFile);
 
             AddButtons();
-            SchuffleButtons(DisplayButtons);
+            ShuffleButtons(DisplayButtons);
             ReadFileToTree();
-            
-        }
 
-        #region Add Buttons
-        public void AddButtons()
-        {
-            DisplayButtons.Add(btnAnswer1);
-            DisplayButtons.Add(btnAnswer2);
-            DisplayButtons.Add(btnAnswer3);
-            DisplayButtons.Add(btnAnswer4);
+            //makes sure the color is white and sets the alignment to the centre
+            lblDescription.TextAlign = ContentAlignment.MiddleCenter;
+            lblDescription.Anchor = AnchorStyles.None;
+            lblDescription.ForeColor = Color.White;
+
         }
-        #endregion
 
         #region ReadToTree
+        /// <summary>
+        /// Reads data from a file and populates a tree.
+        /// </summary>
         public void ReadFileToTree()
         {
-            foreach(string Data in Data)
+            // Iterates through each data string in the Data collection
+            foreach (string dataString in DataStorage)
             {
-                string[] split = Data.Split('.');
+                // Split the data string into two parts using the dot as a separator
+                string[] split = dataString.Split('.');
 
-                if (split.Length == 2 && int.TryParse(split[0],out int data))
+                // Check if the split results in exactly two parts, and if the first part can be parsed as an integer
+                if (split.Length == 2 && int.TryParse(split[0], out int data))
                 {
+                    // Extracts the description from the second part and insert the data and description into the tree
                     string description = split[1];
                     Tree.Insert(data, description);
                 }
                 else
                 {
-                    Console.WriteLine("Error" + Data);
+                    // Display an error message for improperly formatted data
+                    Console.WriteLine("Error: " + dataString);
                 }
             }
 
+            // Call Generate Description
+            GenerateDescription();
+
+            // Find a node based on the generated key and update the first button and UI elements
+            Node bNode = Tree.Find(int.Parse(mkey.ToString()[0] + "00"));
+            DisplayButtons.First().Text = $"{bNode.data}, {bNode.desc.Replace("&", "&&")}";
+            DisplayButtons.RemoveAt(0);
+            Keys.Add(bNode.data);
+
+            // Display values on buttons for the current level
+            ButtonDisplay(DisplayButtons, 3);
+        }
+
+        /// <summary>
+        /// Generates a description and updates UI.
+        /// </summary>
+        private void GenerateDescription()
+        {
             Node tNode = null;
             int num = -1;
 
-            while (tNode == null) 
+            // Generate a random number within a specified range until a valid node is found
+            while (tNode == null)
             {
-                num = random.Next(110,577);
+                //numbers in which my data can be found
+                num = random.Next(110, 577);
 
+                // Ensure that the generated number is not a multiple of 10
                 if (num % 10 != 0)
                 {
+                    // Find a node with the generated number as the key
                     tNode = Tree.Find(num);
                     mkey = num;
                 }
             }
 
+            // Update the description label with the description
             lblDescription.Text = tNode.desc.Replace("&", "&&");
-
-            Node bNode = null;
-            bNode = Tree.Find(int.Parse(num.ToString()[0] + "00"));
-
-            DisplayButtons.First().Text = bNode.data.ToString() + ", " + bNode.desc.Replace("&","&&");
-            DisplayButtons.Remove(DisplayButtons[0]);
-            Keys.Add(bNode.data);
-
-            lblDescription.Text = tNode.desc.Replace("&", "&&");
-            ButtonDisplay(DisplayButtons, 3);
-
         }
         #endregion
 
-        #region TopLevel
+        #region Levels
+        /// <summary>
+        /// Generates nodes for the top level.
+        /// </summary>
+        /// <param name="count"></param>
+        /// <param name="uKeys"></param>
         private List<Node> TLevel(int count, List<int> uKeys)
         {
-            List<Node> tLevelNode = new List<Node>();
-
-            for (int i = 0; i < count; i++)
-            {
-                Node tNode = null;
-                int k = -1;
-
-                while (tNode == null)
-                {
-                    k = random.Next(100, 501);
-
-
-                    if (k % 100 == 0 && !Keys.Contains(k))
-                    {
-                        tNode = Tree.Find(k);
-                    }
-                }
-                tLevelNode.Add(tNode);
-                uKeys.Add(k);
-
-            }
-
-            return tLevelNode;
+            return GenerateLevel(count, uKeys, 100, 501, k => k % 100 == 0);
         }
-        #endregion
 
-        #region SecondLevel
+        /// <summary>
+        /// Generates nodes for the second level.
+        /// </summary>
+        /// <param name="count"></param>
+        /// <param name="uKeys"></param>
         private List<Node> SLevel(int count, List<int> uKeys)
         {
-            List<Node> sLevelNode = new List<Node>();
-
             string cStart = mkey.ToString()[0].ToString();
-
-            for (int i = 0; i < count; i++)
-            {
-                Node tNode = null;
-                int k = -1;
-
-                while (tNode == null)
-                {
-                    k = int.Parse($"{cStart}{random.Next(10, 96)}");    
-
-                    if (k % 10 == 0 && !Keys.Contains(k))
-                    {
-                        tNode = Tree.Find(k);
-                    }
-                }
-                sLevelNode.Add(tNode);
-                uKeys.Add(k);
-
-            }
-
-            return sLevelNode;
+            return GenerateLevel(count, uKeys, 10, 96, k => k % 10 == 0, cStart);
         }
-        #endregion
 
-        #region ThirdLevel
+        /// <summary>
+        /// Generates nodes for the third level.
+        /// </summary>
+        /// <param name="count"></param>
+        /// <param name="uKeys"></param>
+        
         private List<Node> ThirdLevel(int count, List<int> uKeys)
         {
-            List<Node> TLevelNode = new List<Node>();
+            string cStart = mkey.ToString().Substring(0, 2);
+            return GenerateLevel(count, uKeys, 1, 9, k => !uKeys.Contains(k), cStart);
+        }
 
-            string cStart = mkey.ToString().Substring(0,2);
+        /// <summary>
+        /// Generates nodes for a specific level based on the provided conditions.
+        /// </summary>
+        /// <param name="count"></param>
+        /// <param name="uKeys"></param>
+        /// <param name="minRange"></param>
+        /// <param name="maxRange"></param>
+        /// <param name="condition"></param>
+        /// <param name="prefix"></param>
+        private List<Node> GenerateLevel(int count, List<int> uKeys, int minRange, int maxRange, Func<int, bool> condition, string prefix = "")
+        {
+            List<Node> levelNode = new List<Node>();
 
             for (int i = 0; i < count; i++)
             {
@@ -172,114 +179,150 @@ namespace BenjaminShirk_ST10081854_ProgPart1
 
                 while (tNode == null)
                 {
-                    k = int.Parse($"{cStart}{random.Next(1, 9)}");
+                    //Generate a key within the specified range and prefix
+                    k = int.Parse($"{prefix}{random.Next(minRange, maxRange)}");
 
-                    if (!uKeys.Contains(k))
+                    //key meets the specified condition
+                    if (condition(k))
                     {
                         tNode = Tree.Find(k);
                     }
                 }
-                TLevelNode.Add(tNode);
-                uKeys.Add(k);
 
+                //Add the generated node and key to the list
+                levelNode.Add(tNode);
+                uKeys.Add(k);
             }
 
-            return TLevelNode;
+            return levelNode;
         }
-
         #endregion
 
         #region Button Display
+
+        /// <summary>
+        /// Displays values on the provided buttons based on the given node list.
+        /// </summary>
+        /// <param name="buttons"></param>
+        /// <param name="count"></param>
+        /// <param name="tLevelNode"></param>
+        private void DisplayLevel(List<Button> buttons, int count, List<Node> tLevelNode)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                // Checks if the index is within the range of the buttons and if the corresponding node is not null
+                if (i < buttons.Count && tLevelNode[i] != null)
+                {
+                    
+                    buttons[i].Text = $"{tLevelNode[i].data}, {tLevelNode[i].desc.Replace("&", "&&")}";
+                }
+                else
+                {
+                    // Default Text
+                    buttons[i].Text = "Description";
+                }
+            }
+        }
+
+        /// <summary>
+        /// Displays button values for the first level.
+        /// </summary>
+        /// <param name="buttons"></param>
+        /// <param name="count"></param>
         public void ButtonDisplay(List<Button> buttons, int count)
         {
-            List<Node> tLevelNode = TLevel(count, Keys);
-
-            for (int i = 0;i < count;i++) 
-            {
-                if (i < buttons.Count && tLevelNode[i] != null)
-                {
-                    buttons[i].Text = tLevelNode[i].data.ToString() + ", " + tLevelNode[i].desc.Replace("&", "&&");
-                }
-                else
-                {
-                    buttons[i].Text = "Description";
-                }
-            }
+            // Gets the values for the buttons based on the first level
+            DisplayLevel(buttons, count, TLevel(count, Keys));
         }
 
+        /// <summary>
+        /// Displays button values for the second level.
+        /// </summary>
+        /// <param name="buttons"></param>
+        /// <param name="count"></param>
         public void ButtonDisplay2(List<Button> buttons, int count)
         {
-            List<Node> tLevelNode = SLevel(count, Keys);
-
-            for (int i = 0; i < count; i++)
-            {
-                if (i < buttons.Count && tLevelNode[i] != null)
-                {
-                    buttons[i].Text = tLevelNode[i].data.ToString() + ", " + tLevelNode[i].desc.Replace("&", "&&");
-                }
-                else
-                {
-                    buttons[i].Text = "Description";
-                }
-            }
+            // Gets the values for the buttons based on the second level
+            DisplayLevel(buttons, count, SLevel(count, Keys));
         }
 
+        /// <summary>
+        /// Displays button values for the third level.
+        /// </summary>
+        /// <param name="buttons"></param>
+        /// <param name="count"></param>
         public void ButtonDisplay3(List<Button> buttons, int count)
         {
-            List<Node> tLevelNode = ThirdLevel(count, Keys);
-
-            for (int i = 0; i < count; i++)
-            {
-                if (i < buttons.Count && tLevelNode[i] != null)
-                {
-                    buttons[i].Text = tLevelNode[i].data.ToString() + ", " + tLevelNode[i].desc.Replace("&", "&&");
-                }
-                else
-                {
-                    buttons[i].Text = "Description";
-                }
-            }
-        }
-
-        #endregion
-
-        #region Schuffle Buttons
-        public void SchuffleButtons(List<Button>b)
-        {
-            int n = b.Count;
-            while (n > 1)
-            {
-                n--;
-                int j = random.Next(n+1);
-                Button temp = b[j];
-                b[j] = b[n];
-                b[n] = temp;
-
-            }
+            // Gets the values for the buttons based on the third level
+            DisplayLevel(buttons, count, ThirdLevel(count, Keys));
         }
         #endregion
 
-        #region AssignButtonValues
-        public void assignButtonValues()
+        #region Shuffle Buttons
+        /// <summary>
+        /// Shuffles the order of buttons randomly.
+        /// </summary>
+        /// <param name="buttons"></param>
+        public void ShuffleButtons(List<Button> buttons)
         {
+            // Gest the total number of buttons
+            int numberOfButtons = buttons.Count;
+
+            // Loops through the buttons and shuffles their order
+            while (numberOfButtons > 1)
+            {
+                numberOfButtons--;
+
+                // Generate a random index within the remaining buttons
+                int randomIndex = random.Next(numberOfButtons + 1);
+
+                // Swap the positions of the current button and a randomly chosen button
+                Button temp = buttons[randomIndex];
+                buttons[randomIndex] = buttons[numberOfButtons];
+                buttons[numberOfButtons] = temp;
+            }
+        }
+        #endregion
+
+        #region Assign Button Values
+        /// <summary>
+        /// Assigns values to buttons based on the first and second digits of the current key.
+        /// </summary>
+        public void AssignButtonValues()
+        {
+            //Initialize the node to null
             Node bNode = null;
+
+            //Extracts the first two digits and append '0' to form the key for level 1
             int cLevelKey = int.Parse($"{mkey.ToString()[0]}{mkey.ToString()[1]}0");
+
+            //Finds the node in the tree with the calculated key
             bNode = Tree.Find(cLevelKey);
+
+            //If the node is found, update the text of the first button, remove it, and add the key to the list
             if (bNode != null)
             {
-                DisplayButtons[0].Text = bNode.data.ToString() + ", " + bNode.desc;
+                DisplayButtons[0].Text = $"{bNode.data}, {bNode.desc}";
                 DisplayButtons.RemoveAt(0);
                 Keys.Add(cLevelKey);
             }
         }
 
-        public void assignButtonValue1()
+        /// <summary>
+        /// Assigns values to buttons based on the current key.
+        /// </summary>
+        public void AssignButtonValue1()
         {
+            //Initializes the node to null
             Node bNode = null;
+
+            //Finds the node in the tree with the current key
             bNode = Tree.Find(mkey);
+
+            //If the node is found, update the text of the first button, remove it, and add the key to the list
             if (bNode != null)
             {
-                DisplayButtons[0].Text = bNode.data.ToString() + ", " + bNode.desc;
+                DisplayButtons[0].Text = $"{bNode.data}, {bNode.desc}";
                 DisplayButtons.RemoveAt(0);
                 Keys.Add(mkey);
             }
@@ -287,110 +330,79 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region Button Clicks
+        /// <summary>
+        /// Handles the click event for answer buttons.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AnswerButtonClick(object sender, EventArgs e)
+        {
+            //Checks if the current level is 1
+            if (level == 1)
+            {
+                //sender as a Button
+                Button clickedButton = (Button)sender;
+
+                // Check conditions based on the text of the clicked button
+                if (CheckButton(clickedButton.Text))
+                {
+                    //move to level 2 and update progress bar
+                    lvl2();
+                    PBBookGameProgressBar.Value = 25;
+                }
+                else if (CheckButton2(clickedButton.Text))
+                {
+                    //move to level 3 and update progress bar
+                    lvl3();
+                    PBBookGameProgressBar.Value = 50;
+                }
+                else if (CheckButton3(clickedButton.Text))
+                {
+                    //show results, update progress bar, and scores
+                    Results();
+                    PBBookGameProgressBar.Value = 100;
+                    Score++;
+                    TotalScore += Score;
+                    UpdateScore();
+                }
+            }
+        }
+        /// <summary>
+        /// Event handler for the first answer button click.
+        /// </summary>
         private void btnAnswer1_Click(object sender, EventArgs e)
         {
-            if (level == 1)
-            {
-                if (checkButton(btnAnswer1.Text.ToString()))
-                {
-                    PBBookGameProgressBar.Value = 25;
-                    lvl2();
-                }
-                else if (checkButton2(btnAnswer1.Text.ToString()))
-                {
-                    PBBookGameProgressBar.Value = 50;
-                    lvl3();
-                }
-                else if (checkButton3(btnAnswer1.Text.ToString()))
-                {
-                    PBBookGameProgressBar.Value = 100;
-                    Score = Score + 1;
-                    TotalScore = TotalScore + Score;
-                    Results();
-                    UpdateScore();
-                }
-            }
+            AnswerButtonClick(sender, e);
         }
-
+        /// <summary>
+        /// Event handler for the second answer button click.
+        /// </summary>
         private void btnAnswer2_Click(object sender, EventArgs e)
         {
-            if (level == 1)
-            {
-                if (checkButton(btnAnswer2.Text.ToString()))
-                {
-                    PBBookGameProgressBar.Value = 25;
-                    lvl2();
-                }
-                else if (checkButton2(btnAnswer2.Text.ToString()))
-                {
-                    PBBookGameProgressBar.Value = 50;
-                    lvl3();
-                }
-                else if (checkButton3(btnAnswer2.Text.ToString()))
-                {
-                    PBBookGameProgressBar.Value = 100;
-                    Score = Score + 1;
-                    TotalScore = TotalScore + Score;
-                    Results();
-                    UpdateScore();
-                }
-            }
+            AnswerButtonClick(sender, e);
         }
-
+        /// <summary>
+        /// Event handler for the third answer button click.
+        /// </summary>
         private void btnAnswer3_Click(object sender, EventArgs e)
         {
-            if (level == 1)
-            {
-                if (checkButton(btnAnswer3.Text.ToString()))
-                {
-                    PBBookGameProgressBar.Value = 25;
-                    lvl2();
-                }
-                else if (checkButton2(btnAnswer3.Text.ToString()))
-                {
-                    PBBookGameProgressBar.Value = 50;
-                    lvl3();
-
-                }
-                else if (checkButton3(btnAnswer3.Text.ToString()))
-                {
-                    PBBookGameProgressBar.Value = 100;
-                    Score = Score + 1;
-                    TotalScore = TotalScore + Score;
-                    Results();
-                    UpdateScore();
-                }
-            }
+            AnswerButtonClick(sender, e);
         }
-
+        /// <summary>
+        /// Event handler for the fourth answer button click.
+        /// </summary>
         private void btnAnswer4_Click(object sender, EventArgs e)
         {
-            if (level == 1)
-            {
-                if (checkButton(btnAnswer4.Text.ToString()))
-                {
-                    PBBookGameProgressBar.Value = 25;
-                    lvl2();
-                }
-                else if (checkButton2(btnAnswer4.Text.ToString()))
-                {
-                    PBBookGameProgressBar.Value = 50;
-                    lvl3();
-                }
-                else if (checkButton3(btnAnswer4.Text.ToString()))
-                {
-                    PBBookGameProgressBar.Value = 100;
-                    Score = Score + 1;
-                    TotalScore = TotalScore + Score;
-                    Results();
-                    UpdateScore();
-                }
-            }
+            AnswerButtonClick(sender, e);
         }
         #endregion
 
-        #region ButtonCheck
-        public bool checkButton(string txt)
+        #region Button Check
+        /// <summary>
+        /// Checks if the first digit of the current key matches the first character of the provided text.
+        /// </summary>
+        /// <param name="txt"></param>
+        public bool CheckButton(string txt)
         {
             if (mkey.ToString()[0] == txt[0])
             {
@@ -398,25 +410,36 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             }
             else
             {
+                // If the check fails, show an invalid result and return false
                 InvalidResult();
                 return false;
             }
         }
 
-        public bool checkButton2(string txt)
+        /// <summary>
+        /// Checks if the first two digits of the current key match the first two characters of the provided text.
+        /// </summary>
+        /// <param name="txt"></param>
+        public bool CheckButton2(string txt)
         {
-            if (mkey.ToString().Substring(0,2) == txt.Substring(0, 2))
+            if (mkey.ToString().Substring(0, 2) == txt.Substring(0, 2))
             {
                 return true;
             }
             else
             {
+                // If the check fails, show an invalid result and return false
                 InvalidResult();
                 return false;
             }
         }
 
-        public bool checkButton3(string txt) 
+        /// <summary>
+        /// Checks if the entire current key matches the first three characters of the provided text.
+        /// </summary>
+        /// <param name="txt"></param>
+
+        public bool CheckButton3(string txt)
         {
             if (mkey.ToString() == txt.Substring(0, 3))
             {
@@ -424,15 +447,42 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             }
             else
             {
+                //If the check fails, show an invalid result and return false
                 InvalidResult();
                 return false;
             }
+        }
+        #endregion
 
+        #region SetUpLevel
+        /// <summary>
+        /// level display as we go through the hierachy
+        /// </summary>
+        public void lvl2()
+        {
+            DisplayButtons.Clear();
+            AddButtons();
+            ShuffleButtons(DisplayButtons);
+            AssignButtonValues();
+            ButtonDisplay2(DisplayButtons, 3);
+            level = 2;
+        }
+
+        public void lvl3()
+        {
+            DisplayButtons.Clear();
+            AddButtons();
+            ShuffleButtons(DisplayButtons);
+            AssignButtonValue1();
+            ButtonDisplay3(DisplayButtons, 3);
+            level = 3;
         }
         #endregion
 
         #region Check Results
-
+        /// <summary>
+        /// Method that holds messages whether the user is correct or incorrect
+        /// </summary>
         public void Results()
         {
             MessageBox.Show("Well Done you have successfully completed the game");
@@ -445,26 +495,17 @@ namespace BenjaminShirk_ST10081854_ProgPart1
 
         #endregion
 
-        #region SetUpLevel
-
-        public void lvl2()
+        #region Add Buttons
+        /// <summary>
+        /// Adds Buttons To List of Buttons
+        /// </summary>
+        public void AddButtons()
         {
-            DisplayButtons.Clear();
-            AddButtons();
-            SchuffleButtons(DisplayButtons);
-            assignButtonValues();
-            ButtonDisplay2(DisplayButtons, 3);
-            level = 2;
-        }
-
-        public void lvl3()
-        {
-            DisplayButtons.Clear();
-            AddButtons();
-            SchuffleButtons(DisplayButtons);
-            assignButtonValue1();
-            ButtonDisplay3(DisplayButtons, 3);
-            level = 3;
+            //Adding buttons to the list
+            DisplayButtons.Add(btnAnswer1);
+            DisplayButtons.Add(btnAnswer2);
+            DisplayButtons.Add(btnAnswer3);
+            DisplayButtons.Add(btnAnswer4);
         }
         #endregion
 
@@ -521,6 +562,11 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region Menu Button
+        /// <summary>
+        /// Button click to go back to the main page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -530,7 +576,9 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region Update Score
-
+        /// <summary>
+        /// Update Score Method
+        /// </summary>
         public void UpdateScore()
         {
             lblScoreNumber.Text = Score.ToString();
@@ -539,6 +587,11 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region Reset Score
+        /// <summary>
+        /// Resets the score and Labels
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnResetScore_Click(object sender, EventArgs e)
         {
             TotalScore = 0;
@@ -549,3 +602,4 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
     }
 }
+//-------------------------------------------EndOFFile-----------------------------------------//
