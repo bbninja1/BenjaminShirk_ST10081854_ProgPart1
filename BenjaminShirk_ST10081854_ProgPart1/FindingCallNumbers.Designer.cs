@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlBackground = new System.Windows.Forms.Panel();
+            this.txtTimer = new System.Windows.Forms.TextBox();
             this.btnAnswer1 = new System.Windows.Forms.Button();
             this.btnAnswer3 = new System.Windows.Forms.Button();
             this.btnAnswer4 = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@
             this.btnResetScore = new System.Windows.Forms.Button();
             this.btnNewGame = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.txtTimer = new System.Windows.Forms.TextBox();
             this.pnlBackground.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +70,16 @@
             this.pnlBackground.Size = new System.Drawing.Size(802, 451);
             this.pnlBackground.TabIndex = 0;
             // 
+            // txtTimer
+            // 
+            this.txtTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimer.Location = new System.Drawing.Point(155, 33);
+            this.txtTimer.Name = "txtTimer";
+            this.txtTimer.Size = new System.Drawing.Size(120, 26);
+            this.txtTimer.TabIndex = 53;
+            this.txtTimer.Text = "00.00.00";
+            this.txtTimer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // btnAnswer1
             // 
             this.btnAnswer1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -83,6 +93,7 @@
             this.btnAnswer1.TabIndex = 49;
             this.btnAnswer1.Text = "answerBtn1";
             this.btnAnswer1.UseVisualStyleBackColor = false;
+            this.btnAnswer1.Click += new System.EventHandler(this.btnAnswer1_Click);
             // 
             // btnAnswer3
             // 
@@ -97,6 +108,7 @@
             this.btnAnswer3.TabIndex = 51;
             this.btnAnswer3.Text = "answerBtn3";
             this.btnAnswer3.UseVisualStyleBackColor = false;
+            this.btnAnswer3.Click += new System.EventHandler(this.btnAnswer3_Click);
             // 
             // btnAnswer4
             // 
@@ -111,6 +123,7 @@
             this.btnAnswer4.TabIndex = 52;
             this.btnAnswer4.Text = "answerBtn4";
             this.btnAnswer4.UseVisualStyleBackColor = false;
+            this.btnAnswer4.Click += new System.EventHandler(this.btnAnswer4_Click);
             // 
             // btnAnswer2
             // 
@@ -125,6 +138,7 @@
             this.btnAnswer2.TabIndex = 50;
             this.btnAnswer2.Text = "answerBtn2";
             this.btnAnswer2.UseVisualStyleBackColor = false;
+            this.btnAnswer2.Click += new System.EventHandler(this.btnAnswer2_Click);
             // 
             // lblDescription
             // 
@@ -237,16 +251,6 @@
             this.btnBack.Text = "Menu";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // txtTimer
-            // 
-            this.txtTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimer.Location = new System.Drawing.Point(155, 33);
-            this.txtTimer.Name = "txtTimer";
-            this.txtTimer.Size = new System.Drawing.Size(120, 26);
-            this.txtTimer.TabIndex = 53;
-            this.txtTimer.Text = "00.00.00";
-            this.txtTimer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FindingCallNumbers
             // 

@@ -370,6 +370,8 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #endregion
 
         #region Timer
+        //This Functionality was gathered from youtube 
+        //https://www.youtube.com/watch?v=0cnM8LypCnA
         /// <summary>
         /// Set Up Of the Timer
         /// </summary>
@@ -416,6 +418,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             Application.DoEvents();
         }
         #endregion
+
     }
 }
 //-------------------------------------------EndOFFile-----------------------------------------//

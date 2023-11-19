@@ -38,34 +38,41 @@ namespace BenjaminShirk_ST10081854_ProgPart1
 
         private void LeftRotate(Node X)
         {
-            Node Y = X.right; // set Y
-            X.right = Y.left;//turn Y's left subtree into X's right subtree
-            if (Y.left != null)
+            if (X != null && X.right != null) // Check if X and X's right child are not null
             {
-                Y.left.parent = X;
-            }
-            if (Y != null)
-            {
-                Y.parent = X.parent;//link X's parent to Y
-            }
-            if (X.parent == null)
-            {
-                root = Y;
-            }
-            if (X == X.parent.left)
-            {
-                X.parent.left = Y;
-            }
-            else
-            {
-                X.parent.right = Y;
-            }
-            Y.left = X; //put X on Y's left
-            if (X != null)
-            {
-                X.parent = Y;
-            }
+                Node Y = X.right; // set Y
+                X.right = Y.left; // turn Y's left subtree into X's right subtree
 
+                if (Y.left != null)
+                {
+                    Y.left.parent = X;
+                }
+
+                if (Y != null)
+                {
+                    Y.parent = X.parent; // link X's parent to Y
+                }
+
+                if (X.parent == null)
+                {
+                    root = Y;
+                }
+                else if (X == X.parent.left)
+                {
+                    X.parent.left = Y;
+                }
+                else
+                {
+                    X.parent.right = Y;
+                }
+
+                Y.left = X; // put X on Y's left
+
+                if (X != null)
+                {
+                    X.parent = Y;
+                }
+            }
         }
 
         private void RightRotate(Node Y)
@@ -119,30 +126,28 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             bool isFound = false;
             Node temp = root;
             Node item = null;
-            while (!isFound)
+
+            while (!isFound && temp != null)
             {
-                if (temp == null)
-                {
-                    break;
-                }
                 if (key < temp.data)
                 {
                     temp = temp.left;
                 }
-                if (key > temp.data)
+                else if (key > temp.data)
                 {
                     temp = temp.right;
                 }
-                if (key == temp.data)
+                else // key == temp.data
                 {
                     isFound = true;
                     item = temp;
                 }
             }
+
             if (isFound)
             {
                 Console.WriteLine("{0} was found", key);
-                return temp;
+                return item;
             }
             else
             {
@@ -151,9 +156,9 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             }
         }
 
-        public void Insert(int item)
+        public void Insert(int item, string desc)
         {
-            Node newItem = new Node(item);
+            Node newItem = new Node(item, desc);
             if (root == null)
             {
                 root = newItem;
