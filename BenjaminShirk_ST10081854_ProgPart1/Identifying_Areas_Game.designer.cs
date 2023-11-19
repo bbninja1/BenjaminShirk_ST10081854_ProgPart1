@@ -53,6 +53,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             this.btnEnter = new System.Windows.Forms.Button();
             this.btnResetScore = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
+            this.txtTimer = new System.Windows.Forms.TextBox();
             this.pnlBookcase.SuspendLayout();
             this.ColumnPanel1.SuspendLayout();
             this.pnlBackground.SuspendLayout();
@@ -166,7 +167,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             this.ColumnPanel1.ColumnCount = 3;
             this.ColumnPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
             this.ColumnPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.ColumnPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
+            this.ColumnPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 157F));
             this.ColumnPanel1.Controls.Add(this.lstBox4, 2, 3);
             this.ColumnPanel1.Controls.Add(this.lstBox3, 2, 2);
             this.ColumnPanel1.Controls.Add(this.lstBox2, 2, 1);
@@ -211,7 +212,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             this.lstBox3.Font = new System.Drawing.Font("Constantia", 9F);
             this.lstBox3.FormattingEnabled = true;
             this.lstBox3.ItemHeight = 14;
-            this.lstBox3.Location = new System.Drawing.Point(146, 111);
+            this.lstBox3.Location = new System.Drawing.Point(145, 111);
             this.lstBox3.Margin = new System.Windows.Forms.Padding(2);
             this.lstBox3.Name = "lstBox3";
             this.lstBox3.Size = new System.Drawing.Size(138, 18);
@@ -228,7 +229,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             this.lstBox2.Font = new System.Drawing.Font("Constantia", 9F);
             this.lstBox2.FormattingEnabled = true;
             this.lstBox2.ItemHeight = 14;
-            this.lstBox2.Location = new System.Drawing.Point(146, 63);
+            this.lstBox2.Location = new System.Drawing.Point(145, 63);
             this.lstBox2.Margin = new System.Windows.Forms.Padding(2);
             this.lstBox2.Name = "lstBox2";
             this.lstBox2.Size = new System.Drawing.Size(138, 18);
@@ -293,7 +294,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             this.lstBox1.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBox1.FormattingEnabled = true;
             this.lstBox1.ItemHeight = 14;
-            this.lstBox1.Location = new System.Drawing.Point(146, 15);
+            this.lstBox1.Location = new System.Drawing.Point(145, 15);
             this.lstBox1.Margin = new System.Windows.Forms.Padding(2);
             this.lstBox1.Name = "lstBox1";
             this.lstBox1.Size = new System.Drawing.Size(138, 18);
@@ -345,6 +346,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             // pnlBackground
             // 
             this.pnlBackground.BackgroundImage = global::BenjaminShirk_ST10081854_ProgPart1.Properties.Resources.BackgroundImage;
+            this.pnlBackground.Controls.Add(this.txtTimer);
             this.pnlBackground.Controls.Add(this.btnEnter);
             this.pnlBackground.Controls.Add(this.btnResetScore);
             this.pnlBackground.Controls.Add(this.btnHelp);
@@ -390,6 +392,16 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             this.btnHelp.UseVisualStyleBackColor = true;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
+            // txtTimer
+            // 
+            this.txtTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimer.Location = new System.Drawing.Point(355, 22);
+            this.txtTimer.Name = "txtTimer";
+            this.txtTimer.Size = new System.Drawing.Size(120, 26);
+            this.txtTimer.TabIndex = 54;
+            this.txtTimer.Text = "00.00.00";
+            this.txtTimer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Identifying_Areas_Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -401,11 +413,14 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             this.MaximizeBox = false;
             this.Name = "Identifying_Areas_Game";
             this.Text = "IdentifyingAreas";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Identifying_Areas_Game_FormClosing);
+            this.Load += new System.EventHandler(this.Identifying_Areas_Game_Load);
             this.pnlBookcase.ResumeLayout(false);
             this.pnlBookcase.PerformLayout();
             this.ColumnPanel1.ResumeLayout(false);
             this.ColumnPanel1.PerformLayout();
             this.pnlBackground.ResumeLayout(false);
+            this.pnlBackground.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -435,5 +450,6 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.Button btnResetScore;
         private System.Windows.Forms.Button btnEnter;
+        private System.Windows.Forms.TextBox txtTimer;
     }
 }

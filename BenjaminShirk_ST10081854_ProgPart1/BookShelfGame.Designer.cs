@@ -47,6 +47,7 @@
             this.lblScore = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.btnEnter = new System.Windows.Forms.Button();
+            this.txtTimer = new System.Windows.Forms.TextBox();
             this.pnlBookcase.SuspendLayout();
             this.PnlBookCaseHolder.SuspendLayout();
             this.pnlBackground.SuspendLayout();
@@ -168,6 +169,7 @@
             // pnlBackground
             // 
             this.pnlBackground.BackgroundImage = global::BenjaminShirk_ST10081854_ProgPart1.Properties.Resources.BackgroundImage;
+            this.pnlBackground.Controls.Add(this.txtTimer);
             this.pnlBackground.Controls.Add(this.btnResetTotalScore);
             this.pnlBackground.Controls.Add(this.lblTotalScoreNumber);
             this.pnlBackground.Controls.Add(this.lblTotalScore);
@@ -277,6 +279,16 @@
             this.btnEnter.UseVisualStyleBackColor = false;
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
+            // txtTimer
+            // 
+            this.txtTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimer.Location = new System.Drawing.Point(44, 30);
+            this.txtTimer.Name = "txtTimer";
+            this.txtTimer.Size = new System.Drawing.Size(120, 26);
+            this.txtTimer.TabIndex = 54;
+            this.txtTimer.Text = "00.00.00";
+            this.txtTimer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // BookShelfGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,6 +298,8 @@
             this.Controls.Add(this.pnlBackground);
             this.Name = "BookShelfGame";
             this.Text = "BookShelfGame";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BookShelfGame_FormClosing);
+            this.Load += new System.EventHandler(this.BookShelfGame_Load);
             this.pnlBookcase.ResumeLayout(false);
             this.pnlBookcase.PerformLayout();
             this.PnlBookCaseHolder.ResumeLayout(false);
@@ -316,5 +330,6 @@
         private System.Windows.Forms.Button btnNewGame;
         private System.Windows.Forms.ListView lstCorrectSortedList;
         private System.Windows.Forms.Button btnResetTotalScore;
+        private System.Windows.Forms.TextBox txtTimer;
     }
 }
