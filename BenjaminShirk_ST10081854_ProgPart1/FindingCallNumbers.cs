@@ -15,16 +15,20 @@ namespace BenjaminShirk_ST10081854_ProgPart1
 {
     public partial class FindingCallNumbers : Form
     {
+        //Timer Decleration with variables
         System.Timers.Timer timer;
         int h, m, s;
+        //-------------------------//
         private string[] Data;
         private string PFile;
         RedBlackTree Tree = new RedBlackTree();
         List<Button> DisplayButtons = new List<Button>();
-        List<int> UsedKeys = new List<int>();
+        List<int> Keys = new List<int>();
         int level = 1;
         int mkey = 0;
         Random random = new Random();
+        int Score = 0;
+        int TotalScore = 0;
 
         public FindingCallNumbers()
         {
@@ -87,7 +91,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
 
             DisplayButtons.First().Text = bNode.data.ToString() + ", " + bNode.desc.Replace("&","&&");
             DisplayButtons.Remove(DisplayButtons[0]);
-            UsedKeys.Add(bNode.data);
+            Keys.Add(bNode.data);
 
             lblDescription.Text = tNode.desc.Replace("&", "&&");
             ButtonDisplay(DisplayButtons, 3);
@@ -110,7 +114,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
                     k = random.Next(100, 501);
 
 
-                    if (k % 100 == 0 && !UsedKeys.Contains(k))
+                    if (k % 100 == 0 && !Keys.Contains(k))
                     {
                         tNode = Tree.Find(k);
                     }
@@ -140,7 +144,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
                 {
                     k = int.Parse($"{cStart}{random.Next(10, 96)}");    
 
-                    if (k % 10 == 0 && !UsedKeys.Contains(k))
+                    if (k % 10 == 0 && !Keys.Contains(k))
                     {
                         tNode = Tree.Find(k);
                     }
@@ -188,7 +192,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #region Button Display
         public void ButtonDisplay(List<Button> buttons, int count)
         {
-            List<Node> tLevelNode = TLevel(count, UsedKeys);
+            List<Node> tLevelNode = TLevel(count, Keys);
 
             for (int i = 0;i < count;i++) 
             {
@@ -205,7 +209,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
 
         public void ButtonDisplay2(List<Button> buttons, int count)
         {
-            List<Node> tLevelNode = SLevel(count, UsedKeys);
+            List<Node> tLevelNode = SLevel(count, Keys);
 
             for (int i = 0; i < count; i++)
             {
@@ -222,7 +226,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
 
         public void ButtonDisplay3(List<Button> buttons, int count)
         {
-            List<Node> tLevelNode = ThirdLevel(count, UsedKeys);
+            List<Node> tLevelNode = ThirdLevel(count, Keys);
 
             for (int i = 0; i < count; i++)
             {
@@ -265,7 +269,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             {
                 DisplayButtons[0].Text = bNode.data.ToString() + ", " + bNode.desc;
                 DisplayButtons.RemoveAt(0);
-                UsedKeys.Add(cLevelKey);
+                Keys.Add(cLevelKey);
             }
         }
 
@@ -277,7 +281,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             {
                 DisplayButtons[0].Text = bNode.data.ToString() + ", " + bNode.desc;
                 DisplayButtons.RemoveAt(0);
-                UsedKeys.Add(mkey);
+                Keys.Add(mkey);
             }
         }
         #endregion
@@ -289,15 +293,21 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             {
                 if (checkButton(btnAnswer1.Text.ToString()))
                 {
+                    PBBookGameProgressBar.Value = 25;
                     lvl2();
                 }
                 else if (checkButton2(btnAnswer1.Text.ToString()))
                 {
+                    PBBookGameProgressBar.Value = 50;
                     lvl3();
                 }
                 else if (checkButton3(btnAnswer1.Text.ToString()))
                 {
+                    PBBookGameProgressBar.Value = 100;
+                    Score = Score + 1;
+                    TotalScore = TotalScore + Score;
                     Results();
+                    UpdateScore();
                 }
             }
         }
@@ -308,15 +318,21 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             {
                 if (checkButton(btnAnswer2.Text.ToString()))
                 {
+                    PBBookGameProgressBar.Value = 25;
                     lvl2();
                 }
                 else if (checkButton2(btnAnswer2.Text.ToString()))
                 {
+                    PBBookGameProgressBar.Value = 50;
                     lvl3();
                 }
                 else if (checkButton3(btnAnswer2.Text.ToString()))
                 {
+                    PBBookGameProgressBar.Value = 100;
+                    Score = Score + 1;
+                    TotalScore = TotalScore + Score;
                     Results();
+                    UpdateScore();
                 }
             }
         }
@@ -327,15 +343,22 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             {
                 if (checkButton(btnAnswer3.Text.ToString()))
                 {
+                    PBBookGameProgressBar.Value = 25;
                     lvl2();
                 }
                 else if (checkButton2(btnAnswer3.Text.ToString()))
                 {
+                    PBBookGameProgressBar.Value = 50;
                     lvl3();
+
                 }
                 else if (checkButton3(btnAnswer3.Text.ToString()))
                 {
+                    PBBookGameProgressBar.Value = 100;
+                    Score = Score + 1;
+                    TotalScore = TotalScore + Score;
                     Results();
+                    UpdateScore();
                 }
             }
         }
@@ -346,15 +369,21 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             {
                 if (checkButton(btnAnswer4.Text.ToString()))
                 {
+                    PBBookGameProgressBar.Value = 25;
                     lvl2();
                 }
                 else if (checkButton2(btnAnswer4.Text.ToString()))
                 {
+                    PBBookGameProgressBar.Value = 50;
                     lvl3();
                 }
                 else if (checkButton3(btnAnswer4.Text.ToString()))
                 {
+                    PBBookGameProgressBar.Value = 100;
+                    Score = Score + 1;
+                    TotalScore = TotalScore + Score;
                     Results();
+                    UpdateScore();
                 }
             }
         }
@@ -488,6 +517,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             timer.Stop();
             Application.DoEvents();
         }
+
         #endregion
 
         #region Menu Button
@@ -496,6 +526,25 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             this.Hide();
             Menu MainMenu = new Menu();
             MainMenu.Show();
+        }
+        #endregion
+
+        #region Update Score
+
+        public void UpdateScore()
+        {
+            lblScoreNumber.Text = Score.ToString();
+            lblTotalScoreNumber.Text = TotalScore.ToString();
+        }
+        #endregion
+
+        #region Reset Score
+        private void btnResetScore_Click(object sender, EventArgs e)
+        {
+            TotalScore = 0;
+            Score = 0;
+            lblScoreNumber.Text = "0";
+            lblTotalScoreNumber.Text = "0";
         }
         #endregion
     }

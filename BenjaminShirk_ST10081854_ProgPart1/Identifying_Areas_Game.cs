@@ -16,8 +16,10 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         /// <summary>
         /// variables
         /// </summary>
+        //Timer Decleration with variables
         System.Timers.Timer timer;
         int h, m, s;
+        //-------------------------//
         private Identifying_Areas identfiyingAreas;
         private int gameAlternatater = 0;
         private object Item;

@@ -19,8 +19,10 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         public List<Dewey_Decimal> sList;
         public int Score;
         public int TotalScore;
+        //Timer Decleration with variables
         System.Timers.Timer timer;
         int h, m, s;
+        //-------------------------//
         public BookShelfGame()
         {
             InitializeComponent();

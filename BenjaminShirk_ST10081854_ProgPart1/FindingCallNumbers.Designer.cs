@@ -40,7 +40,6 @@
             this.lblTotalScore = new System.Windows.Forms.Label();
             this.lblScoreNumber = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
-            this.btnEnter = new System.Windows.Forms.Button();
             this.btnResetScore = new System.Windows.Forms.Button();
             this.btnNewGame = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
@@ -61,7 +60,6 @@
             this.pnlBackground.Controls.Add(this.lblTotalScore);
             this.pnlBackground.Controls.Add(this.lblScoreNumber);
             this.pnlBackground.Controls.Add(this.lblScore);
-            this.pnlBackground.Controls.Add(this.btnEnter);
             this.pnlBackground.Controls.Add(this.btnResetScore);
             this.pnlBackground.Controls.Add(this.btnNewGame);
             this.pnlBackground.Controls.Add(this.btnBack);
@@ -73,7 +71,7 @@
             // txtTimer
             // 
             this.txtTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimer.Location = new System.Drawing.Point(155, 33);
+            this.txtTimer.Location = new System.Drawing.Point(349, 33);
             this.txtTimer.Name = "txtTimer";
             this.txtTimer.Size = new System.Drawing.Size(120, 26);
             this.txtTimer.TabIndex = 53;
@@ -157,7 +155,7 @@
             // 
             // PBBookGameProgressBar
             // 
-            this.PBBookGameProgressBar.Location = new System.Drawing.Point(313, 33);
+            this.PBBookGameProgressBar.Location = new System.Drawing.Point(313, 72);
             this.PBBookGameProgressBar.Name = "PBBookGameProgressBar";
             this.PBBookGameProgressBar.Size = new System.Drawing.Size(200, 29);
             this.PBBookGameProgressBar.TabIndex = 45;
@@ -210,26 +208,17 @@
             this.lblScore.TabIndex = 41;
             this.lblScore.Text = "Score :";
             // 
-            // btnEnter
-            // 
-            this.btnEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnter.Location = new System.Drawing.Point(385, 401);
-            this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(75, 35);
-            this.btnEnter.TabIndex = 40;
-            this.btnEnter.Text = "Enter";
-            this.btnEnter.UseVisualStyleBackColor = true;
-            // 
             // btnResetScore
             // 
             this.btnResetScore.BackColor = System.Drawing.SystemColors.Control;
             this.btnResetScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResetScore.Location = new System.Drawing.Point(109, 403);
+            this.btnResetScore.Location = new System.Drawing.Point(640, 85);
             this.btnResetScore.Name = "btnResetScore";
             this.btnResetScore.Size = new System.Drawing.Size(135, 35);
             this.btnResetScore.TabIndex = 39;
             this.btnResetScore.Text = "Reset Score";
             this.btnResetScore.UseVisualStyleBackColor = false;
+            this.btnResetScore.Click += new System.EventHandler(this.btnResetScore_Click);
             // 
             // btnNewGame
             // 
@@ -273,7 +262,6 @@
 
         private System.Windows.Forms.Panel pnlBackground;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button btnEnter;
         private System.Windows.Forms.Button btnResetScore;
         private System.Windows.Forms.Button btnNewGame;
         private System.Windows.Forms.Label lblTotalScoreNumber;
