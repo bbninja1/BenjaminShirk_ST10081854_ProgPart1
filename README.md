@@ -14,15 +14,22 @@ Project Name - bbninja1/BenjaminShirk_ST10081854_ProgPart1
 
 Link - https://github.com/bbninja1/BenjaminShirk_ST10081854_ProgPart1.git
 
-Once Openned the .sln file click the green play button to compile the project
+Once Openned the .sln file click the green play button to compile the project.
 
 OR Open File Submitted On VC learn. 
 
+Open File "BenjaminShirk_ST10081854_POE_Final"
+
 Open File "BenjaminShirk_ST10081854_POE_Final_Project"
+
+Open File "BenjaminShirk_ST10081854_ProgPart1"
+
+Open the .sln file, click the green play button to compile the project.
+
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Part1
+Part 1
 ------------
 Window Forms
 ------------
