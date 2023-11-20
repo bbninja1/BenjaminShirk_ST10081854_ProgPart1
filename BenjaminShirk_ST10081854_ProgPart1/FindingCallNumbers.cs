@@ -25,10 +25,10 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         public string[] DataStorage;
         public string PathFile;
 
-        // Red-Black Tree and Display Buttons Variables
+        // Red-Black Tree and Display Buttons Variables and List
         RedBlackTree Tree = new RedBlackTree();
         List<Button> DisplayButtons = new List<Button>();
-        List<int> Keys = new List<int>();
+        List<int> Key = new List<int>();
 
         // Game Class and Key Variable
         int Class = 1;
@@ -103,7 +103,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             Node bNode = Tree.Find(int.Parse(mkey.ToString()[0] + "00"));
             DisplayButtons.First().Text = $"{bNode.data}, {bNode.desc.Replace("&", "&&")}";
             DisplayButtons.RemoveAt(0);
-            Keys.Add(bNode.data);
+            Key.Add(bNode.data);
 
             // Display values on buttons
             ButtonDisplay(DisplayButtons, 3);
@@ -244,7 +244,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         public void ButtonDisplay(List<Button> buttons, int count)
         {
             // Gets the values for the buttons based on the first level
-            DisplayClass(buttons, count, TClass(count, Keys));
+            DisplayClass(buttons, count, TClass(count, Key));
         }
 
         /// <summary>
@@ -255,7 +255,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         public void ButtonDisplay2(List<Button> buttons, int count)
         {
             // Gets the values for the buttons based on the second level
-            DisplayClass(buttons, count, SClass(count, Keys));
+            DisplayClass(buttons, count, SClass(count, Key));
         }
 
         /// <summary>
@@ -266,7 +266,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         public void ButtonDisplay3(List<Button> buttons, int count)
         {
             // Gets the values for the buttons based on the third level
-            DisplayClass(buttons, count, ThirdClass(count, Keys));
+            DisplayClass(buttons, count, ThirdClass(count, Key));
         }
         #endregion
 
@@ -316,7 +316,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             {
                 DisplayButtons[0].Text = $"{bNode.data}, {bNode.desc}";
                 DisplayButtons.RemoveAt(0);
-                Keys.Add(cLevelKey);
+                Key.Add(cLevelKey);
             }
         }
 
@@ -336,7 +336,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             {
                 DisplayButtons[0].Text = $"{bNode.data}, {bNode.desc}";
                 DisplayButtons.RemoveAt(0);
-                Keys.Add(mkey);
+                Key.Add(mkey);
             }
         }
         #endregion
@@ -481,23 +481,23 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         //Class 2 Set Up Values and Shuffle Buttons
         public void Class2()
         {
+            Class = 2;
             DisplayButtons.Clear();
             AddButtons();
             ShuffleButtons(DisplayButtons);
             AssignButtonValues();
             ButtonDisplay2(DisplayButtons, 3);
-            Class = 2;
         }
 
         //Class 3 Set Up Values and Shuffle Buttons
         public void Class3()
         {
+            Class = 3;
             DisplayButtons.Clear();
             AddButtons();
             ShuffleButtons(DisplayButtons);
             AssignButtonValue1();
             ButtonDisplay3(DisplayButtons, 3);
-            Class = 3;
         }
         #endregion
 
