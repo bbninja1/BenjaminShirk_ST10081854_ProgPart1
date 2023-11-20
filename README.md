@@ -107,7 +107,7 @@ Aditional gamification feature - Timer to indicate user how long the user was on
 
 References
 ----------
-ChatGPT was used on the Drag And Drop Methods.
+ChatGPT was used on the Drag And drag-and-drop methods.
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
@@ -117,7 +117,7 @@ Window Forms
 ------------
 
 Addition of the FindingCallNumbers - This is the FindingCallNumbers Form, the finding call numbers game will use the dewy_decimal_dat.txt file
-to get the neccessary data to let the user navigate through the hierachy that has been generated and stored in the txt file. The game will be 
+to get the necessary data to let the user navigate through the hierachy that has been generated and stored in the txt file. The game will be 
 for the user to naviagte the hierachy correctly and learn on the way. 
 
 The form consists of a 4 answer button that the user will use to navigate the hierachy, a description label that will show Class 1 of the hierachy and
@@ -133,17 +133,39 @@ Validation, SetUpClass, Check Results, Add Buttons, Update Score, ResetScore, Ti
 
 FilePath - Method to find the file in bin Debug and store the data in a string array.
 
-ReadToTree - Reads data from a file and populates a tree.
+ReadToTree - Method that reads data from a file and populates a tree.
 
-Classes - Generates the nodes for the classes(1-3)
+Classes - Method that generates the nodes for the classes(1-3)
+
+Button Displays - Methods that display values on the provided buttons based on the given node class.
+
+Shuffle Buttons - Method that shuffles the order of buttons randomly.
+
+AssignButtonValues - Methods that assign values to buttons based on the first and second digits of the current key.
+
+Validation - Methods to check if the first digit of the current key matches the first character of the provided text.
+
+SetUpClass - Method to display classes (Class 2 and 3) as we go through the hierarchy.
+
+Check Results - Methods that hold messages whether the user is correct or incorrect.
+
+Add Buttons - Method to add answer buttons to the list of buttons.
+
+Update Score - Method that will Update Score.
+
+Reset Score - Method that Resets the Score and Labels.
+
+Timer - Method that Sets Up the Timer.
+
+New Game - Method that will generate a New Game and that will therefore re-start the form to generate a new game.
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
 Extra/Gamification Features
 -----
-Features are the same plus 1 added
+Features are the same plus 1 additional feature added
 
-Gamification features added - Progress bar in the FindingCallNumbers game that will indicate what percentage you got correctly in the hierachy.
+Gamification features added - Progress bar in the FindingCallNumbers game that will indicate what percentage you got correctly in the hierarchy.
                             - Score/Total Score that will add up every game the user does. 
                             - Added A Timer at the top to show how long the game has taken.
 
@@ -151,7 +173,7 @@ Gamification features added - Progress bar in the FindingCallNumbers game that w
 
 References
 ----------
-ChatGPT was used for some of the commenting of my code.
-Youtube Video was used to create the timer used on all my games
+ChatGPT was used for some of the comments on my code.
+YouTube video was used to create the timer used on all my games
 
 --------------------------------------------------------------------------------------------------------------------------------------
