@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace BenjaminShirk_ST10081854_ProgPart1
 {
+    /// <summary>
+    /// RedBlack Tree was used from vc learn and altered based on what was needed and errors occured.
+    /// </summary>
     enum RedBlack
     {
         Red,

@@ -139,33 +139,33 @@ namespace BenjaminShirk_ST10081854_ProgPart1
 
         #region Classes
         /// <summary>
-        /// Generates nodes for the top level.
+        /// Generates nodes for the top Class.
         /// </summary>
         /// <param name="count"></param>
         /// <param name="uKeys"></param>
-        private List<Node> TLevel(int count, List<int> uKeys)
+        private List<Node> TClass(int count, List<int> uKeys)
         {
             return GenerateLevel(count, uKeys, 100, 600, k => k % 100 == 0);
         }
 
         /// <summary>
-        /// Generates second level.
+        /// Generates second Class.
         /// </summary>
         /// <param name="count"></param>
         /// <param name="uKeys"></param>
-        private List<Node> SLevel(int count, List<int> uKeys)
+        private List<Node> SClass(int count, List<int> uKeys)
         {
             string cStart = mkey.ToString()[0].ToString();
             return GenerateLevel(count, uKeys, 10, 96, k => k % 10 == 0, cStart);
         }
 
         /// <summary>
-        /// Generates third level.
+        /// Generates third Class.
         /// </summary>
         /// <param name="count"></param>
         /// <param name="uKeys"></param>
         
-        private List<Node> ThirdLevel(int count, List<int> uKeys)
+        private List<Node> ThirdClass(int count, List<int> uKeys)
         {
             string cStart = mkey.ToString().Substring(0, 2);
             return GenerateLevel(count, uKeys, 1, 9, k => !uKeys.Contains(k), cStart);
@@ -213,20 +213,20 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         #region Button Display
 
         /// <summary>
-        /// Displays values on the provided buttons based on the given node list.
+        /// Displays values on the provided buttons based on the given node class.
         /// </summary>
         /// <param name="buttons"></param>
         /// <param name="count"></param>
-        /// <param name="tLevelNode"></param>
-        private void DisplayLevel(List<Button> buttons, int count, List<Node> tLevelNode)
+        /// <param name="tClassNode"></param>
+        private void DisplayClass(List<Button> buttons, int count, List<Node> tClassNode)
         {
             for (int i = 0; i < count; i++)
             {
                 // Checks if the index is within the range of the buttons and if the corresponding node is not null
-                if (i < buttons.Count && tLevelNode[i] != null)
+                if (i < buttons.Count && tClassNode[i] != null)
                 {
                     
-                    buttons[i].Text = $"{tLevelNode[i].data}, {tLevelNode[i].desc.Replace("&", "&&")}";
+                    buttons[i].Text = $"{tClassNode[i].data}, {tClassNode[i].desc.Replace("&", "&&")}";
                 }
                 else
                 {
@@ -244,7 +244,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         public void ButtonDisplay(List<Button> buttons, int count)
         {
             // Gets the values for the buttons based on the first level
-            DisplayLevel(buttons, count, TLevel(count, Keys));
+            DisplayClass(buttons, count, TClass(count, Keys));
         }
 
         /// <summary>
@@ -255,7 +255,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         public void ButtonDisplay2(List<Button> buttons, int count)
         {
             // Gets the values for the buttons based on the second level
-            DisplayLevel(buttons, count, SLevel(count, Keys));
+            DisplayClass(buttons, count, SClass(count, Keys));
         }
 
         /// <summary>
@@ -266,7 +266,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         public void ButtonDisplay3(List<Button> buttons, int count)
         {
             // Gets the values for the buttons based on the third level
-            DisplayLevel(buttons, count, ThirdLevel(count, Keys));
+            DisplayClass(buttons, count, ThirdClass(count, Keys));
         }
         #endregion
 
@@ -476,7 +476,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
 
         #region SetUpClass
         /// <summary>
-        /// level display as we go through the hierachy
+        /// Class display as we go through the hierachy
         /// </summary>
         //Class 2 Set Up Values and Shuffle Buttons
         public void Class2()
