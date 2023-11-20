@@ -1,0 +1,157 @@
+100.Philosophy & Psychology 
+110.Metaphysics 
+113.Cosmology
+114.Space
+115.Time
+116.Change
+117.Structure
+120.Epistemology
+121.Epistemology
+122.Causation
+124.Teleology
+126.The Self
+128.Humankind
+130.Parapsychology & Occultism 
+131.Parapsychological & occult methods
+133.Specific topics in parapsychology & occultism
+135.Dreams & Mysteries
+137.Divinatory graphology
+138.Physiognomy
+140.Physiognomy
+141.Idealism & related systems
+142.Critical Philosophy
+143.Bergsonism & intuitionism
+144.Humanism & related systems
+145.Sensationalism
+150.Psychology 
+153.Mental Processes & Intelligence
+154.Subconscious & altered states
+155.Differential & developmental psychology
+156.Comparative psychology
+158.Applied psychology
+200.Religion
+210.Philosophy & theory of religion
+211.Concepts of God
+212.Existence, knowability & attributes of God
+213.Creation
+214.Theodicy
+215.Science & Religion
+220.Bible
+221.Old Testament (Tanakh)
+222.Historical Books of Old Testament
+223.Poetic books of Old Testament
+224.Prophetic books of Old Testament
+225.New Testament
+230.Christianity & Christian theology
+231.God
+232.Jesus Christ & His Family
+233.Humankind
+234.Salvation & Grace
+235.Spiritual Beings
+240.Christian practice & observance
+241.Christian ethics
+242.Devotional literature
+243.Evangelistic writings for individuals
+246.Use of art in Christianity
+247.Church furnishings & articles
+260.Christian organization, social work & worship
+261.Social theology
+262.Ecclesiology
+263.Days, times & places of observance
+264.Public worship
+265.Sacraments, other rites & acts
+300.Social Sciences
+310.Statistics
+314.General statistics of Europe
+315.General statistics of Asia
+316.General statistics of Africa
+317.General statistics of North America
+318.General statistics of South America
+320.Political Science
+321.Systems of governments & states
+322.Relation of state to organised groups
+323.Civil & political rights
+324.The political process
+325.International migration & colonisation
+330.Economics
+331.Labor economics
+332.Financial economics
+333.Economics of land & energy
+334.Cooperatives
+335.Socialism & related systems
+340.Law
+341.Law of nations
+342.Constitutional & administrative law
+345.Criminal Law
+346.Private Law
+347.Civil procedure & courts
+370.Education
+372.Elementary education
+373.Secondary education
+374.Adult education
+375.Curricula
+378.Higher Education
+400.Language
+410.Linguistics
+411.Writing systems
+412.Etymology
+413.Dictionaries
+414.Phonology & Phonetics
+415.Grammer
+420.English & Old English languages
+421.English writing system & phonology
+422.English etymology
+423.English dictionaries
+425.English Grammer
+427.English language variations
+430.German & related languages
+431.German writing systems & phonology
+432.German etymology
+433.German dictionaries
+435.German Grammer
+437.German language variations
+440.French & related languages
+441.French writing systems & phonology
+442.French etymology
+443.French dictionaries
+445.French grammar
+447.French language variations
+490.Other languages
+491.East Indo-European & Celtic languages
+492.Afro-Asiatic languages; Semitic languages
+493.Non-Semitic Afro-Asiatic languages
+494.Altaic, Uralic, Hyperborean & Dravidian
+495.Languages of East & Southeast Asia
+500.Science
+510.Mathematics
+511.General principles of mathematics
+512.Algebra
+513.Arithmetic 
+514.Topology
+515.Analysis
+520.Astronomy
+521.Celestial mechanics
+522.Techniques, equipment & materials
+523.Specific celestial bodies & phenomena
+526.Mathematical geography
+527.Celestial navigation
+530.Physics
+531.Classical mechanics
+532.Fluid mechanics
+533.Gas mechanics
+536.Heat
+538.Magnetism
+540.Chemistry
+541.Physical chemistry
+542.Techniques, equipment & materials
+543.Analytical chemistry
+546.Inorganic chemistry
+547.Organic chemistry
+570.Life Sciences
+571.Physiology & related subjects
+572.Biochemistry
+573.Specific physiological systems in animals
+576.Genetics & evolution
+577.Ecology
+
+
