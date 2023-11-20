@@ -125,18 +125,19 @@ Window Forms
 ------------
 
 Addition of the FindingCallNumbers - This is the FindingCallNumbers Form, the finding call numbers game will use the dewy_decimal_dat.txt file
-to get the necessary data to let the user navigate through the hierachy that has been generated and stored in the txt file. The game will be 
-for the user to naviagte the hierachy correctly and learn on the way. 
+to get the necessary data to let the user navigate through the hierarchy that has been generated and stored in the txt file. The game will be 
+for the user to navigate the hierarchy correctly and learn on the way. 
 
-The form consists of a 4 answer button that the user will use to navigate the hierachy, a description label that will show Class 1 of the hierachy and
-the user will use to choose the correct button text to navigate and advance to Class 2 then of corse again to Class 3. 
-Form also consists of a timer at the top that will show how long you are playin the game for and will reset once you start a new game that is also a button at the bottom.
-Reset Score is also a button that will reset total and current score if you choose to. 
+The form consists of a 4 answer button that the user will use to navigate the hierarchy, a description label that will show Class 1 of the hierarchy and
+the user will choose the correct button text to navigate and advance to Class 2 then of again to Class 3. 
+The form also consists of a timer at the top that will show how long you are playing the game and will reset once you start a new game and where there is also a button at the bottom.
+Reset Score is also a button that will reset the total and current score if you choose to. 
+
 --------------------------------------------------------------------------------------------------------------------------------------
 
 Classes
 --------
-The Finding Call Numbers class consists of methods : File Path, ReadToTree, Classes, Button Display, Shuffle Buttons, AssignButtonValues,
+The Finding Call Numbers class consists of methods: File Path, ReadToTree, Classes, Button Display, Shuffle Buttons, AssignButtonValues,
 Validation, SetUpClass, Check Results, Add Buttons, Update Score, ResetScore, Timer, New Game.
 
 FilePath - Method to find the file in bin Debug and store the data in a string array.
