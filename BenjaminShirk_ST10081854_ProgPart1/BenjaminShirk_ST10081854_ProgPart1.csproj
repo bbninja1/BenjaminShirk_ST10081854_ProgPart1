@@ -46,45 +46,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookShelfGame.cs">
+    <Compile Include="Forms\BookShelfGame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BookShelfGame.Designer.cs">
+    <Compile Include="Forms\BookShelfGame.Designer.cs">
       <DependentUpon>BookShelfGame.cs</DependentUpon>
     </Compile>
-    <Compile Include="FindingCallNumbers.cs">
+    <Compile Include="Forms\FindingCallNumbers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FindingCallNumbers.Designer.cs">
+    <Compile Include="Forms\FindingCallNumbers.Designer.cs">
       <DependentUpon>FindingCallNumbers.cs</DependentUpon>
     </Compile>
     <Compile Include="Identifying_Areas.cs" />
-    <Compile Include="Identifying_Areas_Game.cs">
+    <Compile Include="Forms\Identifying_Areas_Game.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Identifying_Areas_Game.designer.cs">
+    <Compile Include="Forms\Identifying_Areas_Game.designer.cs">
       <DependentUpon>Identifying_Areas_Game.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu.cs">
+    <Compile Include="Forms\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
+    <Compile Include="Forms\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RedBlackTree.cs" />
     <Compile Include="Replacing_Books.cs" />
-    <EmbeddedResource Include="BookShelfGame.resx">
+    <EmbeddedResource Include="Forms\BookShelfGame.resx">
       <DependentUpon>BookShelfGame.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FindingCallNumbers.resx">
+    <EmbeddedResource Include="Forms\FindingCallNumbers.resx">
       <DependentUpon>FindingCallNumbers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Identifying_Areas_Game.resx">
+    <EmbeddedResource Include="Forms\Identifying_Areas_Game.resx">
       <DependentUpon>Identifying_Areas_Game.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
+    <EmbeddedResource Include="Forms\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
