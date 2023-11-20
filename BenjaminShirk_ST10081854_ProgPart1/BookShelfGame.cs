@@ -259,6 +259,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         /// <param name="e"></param>
         private void btnNewGame_Click(object sender, EventArgs e)
         {
+            //Creates new Game by calling neccessary methods
             RefreshPageDetails();
             ListBoxPopulation();
         }

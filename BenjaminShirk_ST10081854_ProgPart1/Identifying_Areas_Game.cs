@@ -254,6 +254,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         private void ClearListBox()
         {
             var lstAnswerBox = ColumnPanel1.Controls.OfType<ListBox>().ToList();
+            //Loops through the items in the list box and then will clear them
             foreach (var item in lstAnswerBox)
             {
                 item.Items.Clear();
@@ -294,8 +295,8 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         private void btnBack_Click(object sender, EventArgs e)
         {
             //Take you back to the Menu
-            this.Hide();
             Menu HomePage = new Menu();
+            this.Hide(); //Hide the menu form instead of closing it
             HomePage.Show();
         }
         #endregion

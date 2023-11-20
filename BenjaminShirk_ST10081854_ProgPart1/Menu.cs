@@ -42,7 +42,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         private void btnClose_Click(object sender, EventArgs e)
         {
             //Exit the application
-            this.Close();
+            Application.Exit();
         }
         #endregion
 

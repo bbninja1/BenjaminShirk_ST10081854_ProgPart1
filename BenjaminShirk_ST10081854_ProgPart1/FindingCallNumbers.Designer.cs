@@ -71,7 +71,7 @@
             // txtTimer
             // 
             this.txtTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimer.Location = new System.Drawing.Point(349, 33);
+            this.txtTimer.Location = new System.Drawing.Point(360, 33);
             this.txtTimer.Name = "txtTimer";
             this.txtTimer.Size = new System.Drawing.Size(120, 26);
             this.txtTimer.TabIndex = 53;
@@ -152,6 +152,7 @@
             this.lblDescription.Size = new System.Drawing.Size(138, 25);
             this.lblDescription.TabIndex = 48;
             this.lblDescription.Text = "Description:";
+            this.lblDescription.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PBBookGameProgressBar
             // 
@@ -229,6 +230,7 @@
             this.btnNewGame.TabIndex = 38;
             this.btnNewGame.Text = "New Game";
             this.btnNewGame.UseVisualStyleBackColor = true;
+            this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
             // 
             // btnBack
             // 

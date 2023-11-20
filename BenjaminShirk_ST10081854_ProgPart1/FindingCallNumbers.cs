@@ -11,6 +11,7 @@ using System.Timers;
 using System.Windows.Forms;
 using static BenjaminShirk_ST10081854_ProgPart1.RedBlackTree;
 
+
 namespace BenjaminShirk_ST10081854_ProgPart1
 {
     public partial class FindingCallNumbers : Form
@@ -29,8 +30,8 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         List<Button> DisplayButtons = new List<Button>();
         List<int> Keys = new List<int>();
 
-        // Game Level and Key Variables
-        int level = 1;
+        // Game Class and Key Variable
+        int Class = 1;
         int mkey = 0;
 
         // Random Number Generator
@@ -42,11 +43,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         public FindingCallNumbers()
         {
             InitializeComponent();
-            //finds the txt file path
-            PathFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dewey_Decimal_Data.txt");
-            //sets the string array to the data
-            DataStorage = File.ReadAllLines(PathFile);
-
+            FilePath();
             AddButtons();
             ShuffleButtons(DisplayButtons);
             ReadFileToTree();
@@ -56,7 +53,22 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             lblDescription.Anchor = AnchorStyles.None;
             lblDescription.ForeColor = Color.White;
 
+            //Set The Progress Bar to 0 on form create
+            PBBookGameProgressBar.Value = 0;
         }
+
+        #region File Path
+        /// <summary>
+        /// Finds the File In the Bin Debug File
+        /// </summary>
+        public void FilePath()
+        {
+            //finds the txt file path
+            PathFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Dewey_Decimal_Data.txt");
+            //sets the string array to the data
+            DataStorage = File.ReadAllLines(PathFile);
+        }
+        #endregion
 
         #region ReadToTree
         /// <summary>
@@ -87,13 +99,13 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             // Call Generate Description
             GenerateDescription();
 
-            // Find a node based on the generated key and update the first button and UI elements
+            // Find a node based on the generated key and update the first button
             Node bNode = Tree.Find(int.Parse(mkey.ToString()[0] + "00"));
             DisplayButtons.First().Text = $"{bNode.data}, {bNode.desc.Replace("&", "&&")}";
             DisplayButtons.RemoveAt(0);
             Keys.Add(bNode.data);
 
-            // Display values on buttons for the current level
+            // Display values on buttons
             ButtonDisplay(DisplayButtons, 3);
         }
 
@@ -125,7 +137,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         }
         #endregion
 
-        #region Levels
+        #region Classes
         /// <summary>
         /// Generates nodes for the top level.
         /// </summary>
@@ -133,11 +145,11 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         /// <param name="uKeys"></param>
         private List<Node> TLevel(int count, List<int> uKeys)
         {
-            return GenerateLevel(count, uKeys, 100, 501, k => k % 100 == 0);
+            return GenerateLevel(count, uKeys, 100, 600, k => k % 100 == 0);
         }
 
         /// <summary>
-        /// Generates nodes for the second level.
+        /// Generates second level.
         /// </summary>
         /// <param name="count"></param>
         /// <param name="uKeys"></param>
@@ -148,7 +160,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         }
 
         /// <summary>
-        /// Generates nodes for the third level.
+        /// Generates third level.
         /// </summary>
         /// <param name="count"></param>
         /// <param name="uKeys"></param>
@@ -160,7 +172,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         }
 
         /// <summary>
-        /// Generates nodes for a specific level based on the provided conditions.
+        /// Generates nodes for a specific level
         /// </summary>
         /// <param name="count"></param>
         /// <param name="uKeys"></param>
@@ -168,7 +180,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         /// <param name="maxRange"></param>
         /// <param name="condition"></param>
         /// <param name="prefix"></param>
-        private List<Node> GenerateLevel(int count, List<int> uKeys, int minRange, int maxRange, Func<int, bool> condition, string prefix = "")
+        private List<Node> GenerateLevel(int count, List<int> uKeys, int min, int max, Func<int, bool> condition, string prefix = "")
         {
             List<Node> levelNode = new List<Node>();
 
@@ -180,7 +192,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
                 while (tNode == null)
                 {
                     //Generate a key within the specified range and prefix
-                    k = int.Parse($"{prefix}{random.Next(minRange, maxRange)}");
+                    k = int.Parse($"{prefix}{random.Next(min, max)}");
 
                     //key meets the specified condition
                     if (condition(k))
@@ -337,33 +349,41 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         /// <param name="e"></param>
         private void AnswerButtonClick(object sender, EventArgs e)
         {
-            //Checks if the current level is 1
-            if (level == 1)
+            //Checks if the current class is 1
+            if (Class == 1)
             {
                 //sender as a Button
                 Button clickedButton = (Button)sender;
 
                 // Check conditions based on the text of the clicked button
-                if (CheckButton(clickedButton.Text))
+                if (Validation(clickedButton.Text.ToString()))
                 {
                     //move to level 2 and update progress bar
-                    lvl2();
+                    Class2();
                     PBBookGameProgressBar.Value = 25;
                 }
-                else if (CheckButton2(clickedButton.Text))
+                //Checks if the current class is 2
+                else if (Class == 2)
                 {
-                    //move to level 3 and update progress bar
-                    lvl3();
-                    PBBookGameProgressBar.Value = 50;
+                    if (Validation2(clickedButton.Text.ToString()))
+                    {
+                        //move to level 3 and update progress bar
+                        Class3();
+                        PBBookGameProgressBar.Value = 50;
+                    }
                 }
-                else if (CheckButton3(clickedButton.Text))
+                //Checks if the current class is 3
+                else if (Class == 3)
                 {
-                    //show results, update progress bar, and scores
-                    Results();
-                    PBBookGameProgressBar.Value = 100;
-                    Score++;
-                    TotalScore += Score;
-                    UpdateScore();
+                    if (Validation3(clickedButton.Text.ToString()))
+                    {
+                        //show results, update progress bar, and scores
+                        Results();
+                        PBBookGameProgressBar.Value = 100;
+                        Score++;
+                        TotalScore += Score;
+                        UpdateScore();
+                    }
                 }
             }
         }
@@ -397,12 +417,12 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         }
         #endregion
 
-        #region Button Check
+        #region Validation
         /// <summary>
         /// Checks if the first digit of the current key matches the first character of the provided text.
         /// </summary>
         /// <param name="txt"></param>
-        public bool CheckButton(string txt)
+        public bool Validation(string txt)
         {
             if (mkey.ToString()[0] == txt[0])
             {
@@ -420,7 +440,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         /// Checks if the first two digits of the current key match the first two characters of the provided text.
         /// </summary>
         /// <param name="txt"></param>
-        public bool CheckButton2(string txt)
+        public bool Validation2(string txt)
         {
             if (mkey.ToString().Substring(0, 2) == txt.Substring(0, 2))
             {
@@ -439,7 +459,7 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         /// </summary>
         /// <param name="txt"></param>
 
-        public bool CheckButton3(string txt)
+        public bool Validation3(string txt)
         {
             if (mkey.ToString() == txt.Substring(0, 3))
             {
@@ -454,28 +474,30 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         }
         #endregion
 
-        #region SetUpLevel
+        #region SetUpClass
         /// <summary>
         /// level display as we go through the hierachy
         /// </summary>
-        public void lvl2()
+        //Class 2 Set Up Values and Shuffle Buttons
+        public void Class2()
         {
             DisplayButtons.Clear();
             AddButtons();
             ShuffleButtons(DisplayButtons);
             AssignButtonValues();
             ButtonDisplay2(DisplayButtons, 3);
-            level = 2;
+            Class = 2;
         }
 
-        public void lvl3()
+        //Class 3 Set Up Values and Shuffle Buttons
+        public void Class3()
         {
             DisplayButtons.Clear();
             AddButtons();
             ShuffleButtons(DisplayButtons);
             AssignButtonValue1();
             ButtonDisplay3(DisplayButtons, 3);
-            level = 3;
+            Class = 3;
         }
         #endregion
 
@@ -483,11 +505,14 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         /// <summary>
         /// Method that holds messages whether the user is correct or incorrect
         /// </summary>
+        
+        //Positive Result
         public void Results()
         {
             MessageBox.Show("Well Done you have successfully completed the game");
         }
 
+        //Negative Result
         public void InvalidResult()
         {
             MessageBox.Show("Incorrect Answer you have unsuccessfully completed the game");
@@ -555,8 +580,8 @@ namespace BenjaminShirk_ST10081854_ProgPart1
         //when form closes it will stop the timer
         private void FindingCallNumbers_FormClosing(object sender, FormClosingEventArgs e)
         {
-            timer.Stop();
-            Application.DoEvents();
+                timer.Stop();
+                Application.DoEvents();
         }
 
         #endregion
@@ -598,7 +623,25 @@ namespace BenjaminShirk_ST10081854_ProgPart1
             Score = 0;
             lblScoreNumber.Text = "0";
             lblTotalScoreNumber.Text = "0";
+            //Message to reset your score
+            MessageBox.Show("You have reset your Scores");
         }
+        #endregion
+
+        #region New Game
+        /// <summary>
+        /// New Game Click that will re-start the form to generate a new game
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnNewGame_Click(object sender, EventArgs e)
+        {
+            FindingCallNumbers findingCallNumbers = new FindingCallNumbers();
+            findingCallNumbers.FormClosing += FindingCallNumbers_FormClosing;
+            this.Hide();
+            findingCallNumbers.Show();
+        }
+
         #endregion
     }
 }
