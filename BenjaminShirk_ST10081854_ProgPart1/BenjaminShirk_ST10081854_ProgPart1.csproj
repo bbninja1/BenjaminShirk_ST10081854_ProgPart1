@@ -97,6 +97,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="bin\Debug\BenjaminShirk_ST10081854_ProgPart1.exe.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -121,6 +122,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Bookshelf.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\BenjaminShirk_ST10081854_ProgPart1.exe" />
+    <Content Include="bin\Debug\BenjaminShirk_ST10081854_ProgPart1.pdb" />
+    <Content Include="bin\Debug\Dewey_Decimal_Data.txt" />
+    <Content Include="bin\Debug\ListHandler.dll" />
+    <Content Include="bin\Debug\ListHandler.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
