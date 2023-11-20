@@ -124,7 +124,6 @@ The form consists of a 4 answer button that the user will use to navigate the hi
 the user will use to choose the correct button text to navigate and advance to Class 2 then of corse again to Class 3. 
 Form also consists of a timer at the top that will show how long you are playin the game for and will reset once you start a new game that is also a button at the bottom.
 Reset Score is also a button that will reset total and current score if you choose to. 
-
 --------------------------------------------------------------------------------------------------------------------------------------
 
 Classes
@@ -162,6 +161,13 @@ New Game - Method that will generate a New Game and that will therefore re-start
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
+Tree
+----
+
+RedBlack Tree added that was used from vc learn and altered based on what was needed.
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
 Extra/Gamification Features
 -----
 Features are the same plus 1 additional feature added
@@ -176,5 +182,6 @@ References
 ----------
 ChatGPT was used for some of the comments on my code.
 YouTube video was used to create the timer used on all my games
+RedBlack Tree cs file was used from vc learn.
 
 --------------------------------------------------------------------------------------------------------------------------------------
