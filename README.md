@@ -190,7 +190,7 @@ Gamification features added - Progress bar in the FindingCallNumbers game that w
 References
 ----------
 ChatGPT was used for some of the comments on my code.
-YouTube video was used to create the timer used on all my games
+YouTube video was used to create the timer used on all my games.
 RedBlack Tree cs file was used from vc learn.
 
 --------------------------------------------------------------------------------------------------------------------------------------
